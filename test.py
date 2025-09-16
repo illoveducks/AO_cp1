@@ -1,1 +1,1 @@
-print("test")
+round(2.675, 2)
