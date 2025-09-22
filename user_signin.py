@@ -1,9 +1,24 @@
 # 1st AO User sign in
 
-print("Your username can not have capital letters, but it may have numbers, and no symbols")
 
-print("this is creating an account screen")
+print("please type in your username and password")
 
-user = input("what do you want your username to be:\n")
+user_input = input("username:\n")
 
-print("now create a password. make sure it's something you can remember!")
+user_inputpass = input("password:\n")
+
+user1 = ("bobthebuilder8")
+user1pass = ("PassWorld157")
+
+user2 = ("JimmyTheChild168")
+user2pass = ("IlikeCats12")
+
+user3 = ("DucksareCool")
+user3pass = ("DucksAremyFav!")
+
+
+users = (user1)
+
+if user == users:
+    print("welcome back! Nice to see you again, do whatever you want to do have fun! ")
+    
