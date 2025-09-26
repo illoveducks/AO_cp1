@@ -28,5 +28,3 @@ elif grade > 60 and grade < 64:
     print(" A D... Really?")
 else:
     print(" You're a failure, that's what an F is, you should be in a different class, or do better.")
-
-
