@@ -17,19 +17,16 @@ def start_game():
         elif guess > number_to_guess:
             attempts += 1
             print("Too high! Try again.")
-        elif guess < number_to_guess:
-            print("Too low! Try again.")  
-        else:
-            print("that's not a number!")
+        elif guess < number_to_guess:1
+        print("Too low! Try again.")  
+        attempts += 1
         continue
-    print("Game Over. Thanks for playing!")
-
 start_game()
-
-
 
 # run-time error, the variable, " guess " wasn't labeled as a int or float which cause it to break while running
 
-# logic error, you have an unlimited attempts in this game
+# logic error, you have an unlimited attempts in this game, fixed it by added so that it added an attempt everytime you put an input
 
-#      
+#   run-time error, if there is a space or letter it breaks
+
+# There isn't really a need for the print statement at the bottom, as sometimes it doesn't print, it's a logic error
