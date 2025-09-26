@@ -16,5 +16,12 @@ elif grade > 80 and grade < 82:
     print("you have a B- congrats! You're doing pretty well, but you can do better for sure. ")
 elif grade >= 76 and grade < 80:
     print(" You have a C+, you can do better. ")
-
+elif grade > 73 and grade < 76:
+    print("you got a C, you can try pushing your grade a bit better.")
+elif grade > 70 and grade < 73:
+    print("wow a C-... you're close to a D please... do better ")
+elif grade < 70 and grade < 60:
+    print(" wow... a D... really? there is no point in me put the - and + youre failing, come on push yourself harder ")
+elif grade < 50:
+    print("an F, you're failing, i have no words push yourself harder") 
 
