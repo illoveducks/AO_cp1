@@ -3,7 +3,7 @@
 shop_list = []
 
 while True:
-    print("to add things type1, to remove things type 2, to show the list type 3, to quit type 4")
+    print("to add things 1, to remove 2, to show the list 3, to leave 4")
     action = input("please type a number 1-4:\n")
    
    
