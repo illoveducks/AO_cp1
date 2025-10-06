@@ -14,7 +14,7 @@ child_game = [rock, paper, scissors]
 my_points = 0 
 your_points = 0
 
-import random
+
 
 while True:
     
