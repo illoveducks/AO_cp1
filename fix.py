@@ -20,6 +20,7 @@ def start_game():
         elif guess < number_to_guess:1
         print("Too low! Try again.")  
         attempts += 1
+        
         continue
 start_game()
 
@@ -27,6 +28,6 @@ start_game()
 
 # logic error, you have an unlimited attempts in this game, fixed it by added so that it added an attempt everytime you put an input
 
-#   run-time error, if there is a space or letter it breaks
+#   run-time error, if there is an input that is not said, like if the input is not an integer it breaks, I fixed that ny adding an if statement
 
 # There isn't really a need for the print statement at the bottom, as sometimes it doesn't print, it's a logic error
