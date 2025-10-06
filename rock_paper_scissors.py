@@ -20,7 +20,7 @@ while True:
     
     print("let's see who wins in this child's game!")
     
-    start = input(f" rock, paper, scissors: Pick one We'll see who wins, to see the scores type score, to leave type quit:\n")
+    start = input(" rock, paper, scissors: Pick one We'll see who wins, to see the scores type score, to leave type quit:\n")
   
     if my_points > 15 or your_points > 15:
         print("haha...I had fun, but it's time we take a break alright? See you soon!")
