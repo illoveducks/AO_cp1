@@ -1,0 +1,14 @@
+AO 1st psuedocode tic tac toe program
+
+import random allows the computer to pick something random from a list
+
+
+show(___|___|__
+     ___|___|__
+        |   |  )
+        
+        show( you go first)
+      
+        user makes his move, then the computer will make its move, every move updates the board
+the player can win by getting three in a row, in a column, and a diagonal line. The computer will check again and again after the third move.
+
