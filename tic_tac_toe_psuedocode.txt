@@ -7,8 +7,36 @@ show(___|___|__
      ___|___|__
         |   |  )
         
-        show( you go first)
+        of course we have to " import random " so the computer doesn't do random shanenigans 
       
         user makes his move, then the computer will make its move, every move updates the board
-the player can win by getting three in a row, in a column, and a diagonal line. The computer will check again and again after the third move.
+the player can win by getting three in a row, in a column, and a diagonal line. The computer will check again and again after the third move. Just to see who won
+
+Before the game begins the player can choose what shape he wants X or O, the player will always go first if it's an X. 
+if the player chooses O the computer goes first since it will be X
+The way the came works, of course is basic tic-tac toe rules, since this is on a computer each box will be seperated into rows. something like
+( 1, 2, 3
+  4, 5, 6
+  7, 8, 9 )
+  like that, 
+  while true will be right here
+  the user will be able to make a choice on that, once that choice is selected and is available the number will either be replaced with an O or X depending on what letter the user chose,
+  so it'll remove the number from the list, and replace it with a shape, take it's place in the list basically.
+
+after three moves, the computer will check over and over to see who won, now people can win diagonal, in a row, or a column their are many possible combinations so I won't write them here for time's sake.
+
+if the user selects a number or something that isn't vaild it will just display ( that doesn't work ) 
+
+if the whole tic tac toe table is filled out and no one wins, it will removed all the shapes and restart back to square one, where there are no shapes no longer, it just deletes the whole list and replaces it with a new one, 
+which will be the one you started with
+
+if you win, you get a point
+
+and it restarts the table once more, or update whatever you wanna say
+
+and if you lose, the computer gets a point and goes back to the top
+
+and it restarts the table once more and goes back to the top
+
+you can keep going for as long as you want it won't really change much of a thing, but if you want to leave, just type, " leave " that will be the user input to end this loop.
 
