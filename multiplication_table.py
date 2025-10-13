@@ -1,7 +1,7 @@
 # AO 1st multiplication table CP1
 
-multi_table = (int(input("give a number 1-12 and I will show you a multiplication table")))
+import re
 
-for x in range(0, 13):
-    print(int(x * multi_table))
-    
+txt = "The rain in Spain"
+x = re.search("ai", txt)
+print(x) #this will print an object
