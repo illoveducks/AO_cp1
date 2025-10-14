@@ -24,7 +24,6 @@ while True:
     points = 0
 # ask user for a password
     password = input("please make a password:\n")
-
     if len(password) < 8:     
 # the computer will check how long the password is if it's above 8, then add 1 point, if not suggest making it longer
         print("You may wanna make your password longer")
@@ -36,11 +35,13 @@ while True:
         print("password must contain a lower case letter!")
     if not re.search("[0-9]", password):
         print("please add a number. ")
+    if not re.search("[!@#$%^&*]", password):
+        print("add one of the given symbols please.")
     else:
         print("Congrats! You've made a strong passowrd. ")
         points += 5 # sorry I'm lazy... 
-        print(points, "That is pretty strong! ")
-    break 
+        print(points, "points That is pretty strong! ")
+        break 
 
 
 
