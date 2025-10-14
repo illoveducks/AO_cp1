@@ -19,7 +19,7 @@ while True:
 
 
 # Just stating the requirements
-    print(" requirements: password length must be 8 or more characters, must have numbers, must have a special symbol things like !@#$%^&* any of those work must have one. things like that. Must have a lower case and uppercase letter.")
+    print(" requirements: password length must be 8 or more characters, must have numbers, must have one of the given symbols !@#$%^&* any of those work must have one. Must have a lower case and uppercase letter.")
 # points are your password point strength
     points = 0
 # ask user for a password
@@ -44,7 +44,7 @@ while True:
         continue
     else:
         print("Congrats! You've made a strong passowrd. ")
-        points += 5 # sorry I'm lazy... adds points to the
+        points += 5 # sorry I'm lazy... adds points to the meter
         print(points, "points That is pretty strong! ")
         break 
 
