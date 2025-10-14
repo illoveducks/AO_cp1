@@ -19,7 +19,7 @@ while True:
 
 
 # Just stating the requirements
-    print(" requirements: password length must be 8 or more characters, must have numbers, must have a special symbol things like @ and things like that. Must have a lower case and uppercase letter.")
+    print(" requirements: password length must be 8 or more characters, must have numbers, must have a special symbol things like !@#$%^&* any of those work must have one. things like that. Must have a lower case and uppercase letter.")
 # points are your password point strength
     points = 0
 # ask user for a password
@@ -28,15 +28,23 @@ while True:
     if len(password) < 8:     
 # the computer will check how long the password is if it's above 8, then add 1 point, if not suggest making it longer
         print("You may wanna make your password longer")
-        continue
-    elif len(password) >= 8:
-       points += 1
-    elif re.findall("[A-Z]"):
-        break
-    
+    elif len(password) > 8:
+        points += 1
+    elif not re.search("[A-Z]", password):
+    # checks for a capital letter
+        print("weak")
+        print("password must have an upper case letter")
+    elif not re.search("[a-z]", password):
+    # checks for a lowercase letter
+        print("password must contain a lower case letter!")
+    elif not re.search("[!@#$%^&*]", password):
+        #checks for a special symbol
+        print("please add a symbol of one of the given above. ")
+    else:
+        print("Congrats! You've made a strong passowrd. ")
+        points += 3
+        print(points, "That is pretty strong! ")
         
-    # the computer will check if one of the letters is uppercase, if it one of the letters is, it will move on and add 1 point, if not go back up and suggest adding one
- 
 
 
 
