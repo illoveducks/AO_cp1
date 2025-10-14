@@ -36,7 +36,7 @@ while True:
         print("password must contain a lower case letter!")
     if not re.search("[0-9]", password):
         print("please add a number. ")
-    elif:
+    else:
         print("Congrats! You've made a strong passowrd. ")
         points += 5 # sorry I'm lazy... 
         print(points, "That is pretty strong! ")
