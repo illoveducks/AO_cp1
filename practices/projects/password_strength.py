@@ -25,21 +25,26 @@ while True:
 # ask user for a password
     password = input("please make a password:\n")
     if len(password) < 8:     
-# the computer will check how long the password is if it's above 8, then add 1 point, if not suggest making it longer
+# the computer will check how long the password is, if it's shorter than 8 char, then it will put you back up
         print("You may wanna make your password longer")
+        continue
     if not re.search("[A-Z]", password):
-    # checks for a capital letter
+    # checks for a capital letter if none, puts youy back up
         print("password must have an upper case letter")
+        continue
     if not re.search("[a-z]", password):
-    # checks for a lowercase letter
+    # checks for a lowercase letter if none puts you back up
         print("password must contain a lower case letter!")
-    if not re.search("[0-9]", password):
+        continue
+    if not re.search("[0-9]", password): # checks for a number, if none puts you back up
         print("please add a number. ")
-    if not re.search("[!@#$%^&*]", password):
+        continue
+    if not re.search("[!@#$%^&*]", password): # checks for a special symbol, if none puts you back up
         print("add one of the given symbols please.")
+        continue
     else:
         print("Congrats! You've made a strong passowrd. ")
-        points += 5 # sorry I'm lazy... 
+        points += 5 # sorry I'm lazy... adds points to the
         print(points, "points That is pretty strong! ")
         break 
 
