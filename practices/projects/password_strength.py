@@ -46,7 +46,7 @@ while True:
         continue
     else: 
         points += 1 # adds a point of a condition make
-    if not re.search("[!@#$%^&*]", password): # checks for a special symbol, if none puts you back up
+    if not re.search("[!@#$%^&*\|/?.,><]", password): # checks for a special symbol, if none puts you back up
         print("add one of the given symbols please: somewhat strong")
         continue
     else:
