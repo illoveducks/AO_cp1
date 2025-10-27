@@ -1,6 +1,5 @@
 # AO 1st Combate Program
-# sorry for not making this... turn based...I sort of took inspiration from limbus company it's a game. Where both the player and entity go at the same time. 
-# This has helped me a lot to learn so... yeah... I'm finding this fun, 
+# in nightmare mode both entities go at the same time ( both player and enemy )
 import random as ran
 
 
@@ -25,7 +24,7 @@ if player == 1:
     defense = 0
     status = []
     attacks = ["punch1 ", "adrenaline2",  ]
-    print(f"here are your stats, {health, damage, defense,} here are your abilities/attacks for the time being {attacks}  " )
+    print(f"here are your stats, {"hp",health, "dmg",damage,"def",defense, } here are your abilities/attacks for the time being {attacks}  " )
     print("Now that you have a class you should pick what difficulty you want! There are three and one secret one, you'll have find that out yourself!")
    
 
@@ -38,6 +37,7 @@ elif player == 2:
     status = []
     attacks = [ "flimsy punch1", " Shield up!2 ", " Recovery 3" ] 
     print("passive: heals over time while in battle, and starts with a minion ")
+    print("defense works as extra health that is affected by armor, an extra health bar.")
 
 
 elif player == 3: 
@@ -47,8 +47,7 @@ elif player == 3:
     damage = 10
     status = ["cold"]
     attacks = ["isolate1", "glass stab2", "Break3 ", "repair job4 " ]
-
-    print(" another passive: any attack this character inflicts bleed onto enemies except for break me away. A permamnent debuff that can stack up to five ")
+    print("anything that damages you is set to one, if you have shard and it only damages shard, a fancy shield")
     
 
 elif player == 4:
@@ -70,7 +69,7 @@ if player > 4 or player < 1:
     damage = 12
     status = []
     attacks = ["katar stab", "weave", "repair job"] 
-    print("Passive: every attack inflicts bleed, stacks up to 5")
+
     print("Upon dying as this charcter you die, forever. ")
 
 
@@ -103,6 +102,16 @@ elif  difficulty != 1 or difficulty != 2 or difficulty != 3:
     if difficulty == 1 or difficulty == 2 or difficulty == 3:
         print("Welcome to the training grounds! Where every traveller starts their journey! ")
         print("go attack that dummy!")
+
+
+
+
+
+
+
+
+
+
 
 
 while True:
@@ -181,6 +190,7 @@ while True:
     elif moveset == 1:
         print(" you put arm ahead of yourself in attempt to block them... ")
         print("when attacked does damage back ")
+        print(" both nothing came... " )
 
 while True:
     if difficulty != 1 or difficulty != 2 or difficulty != 3:
@@ -240,11 +250,69 @@ if difficulty == 1 or difficulty == 2 or difficulty == 3:
     print("those are the basics to combat! Congratulatons you can leave the training grounds! ")
     print("Although... i will say... There are things out there now, weird creatures that went through out town... Sadly.")
     print("maybe you can help!")
+    
+player_list = ["slime","player"]
 
+while True:
+        if difficulty != 1:
+            break
+        if difficulty == 1 and player == 1:
+            print("hey, you can attack the slime outside the building! ")
+            print("combat in this game works like if you're flipping a coin!")
+            damage2 = 5 
+            health2 = 15
+            defense2 = 0
+            damage = 20
+            print(health2, "slime's health")
+            print(health, "your health ")
+            print(defense2, "slime shield")
+            print("let's flip this coin!")
+            if health2 < 1:
+                print("you win! ")
+                break
+            if health < 1:
+                print("let's pretend like that didn't happen...")
+            ran.choice(player_list)
 
+            if ran.choice(player_list) == "slime":
+                print("the slime jumps on you! ")
+                health -= damage2
+  
+            elif ran.choice == "player":
+                print("your turn!")
+            
+                print(attacks)
+           
+                moveset = int(input("punch1, adrenaline2,\n" ))
 
+            if moveset == 1 and defense < 1:
+                health2 -= damage
 
+            elif moveset == 1 and defense2 > 1:
+                print("aw...the slime had shield")
+                defense2 -= damage
 
+            if moveset == 2:
+                print("pump up the action!")
+                damage += 5
+                
+
+        if difficulty == 1 and player == 2:
+            print("hey, you can attack the smile outside the building! ")
+            print("combat in this game works like if you're flippng a coin! You either get really good or really bad luck...")
+            ran.choice(player_list)
+            
+        if difficulty == 1 and player == 3:
+            print("hey, you can attack the smile outside the building! ")
+            print(attacks)
+
+        if difficulty == 1 and player == 4:
+            print("hey, you can attack the smile outside the building! ")
+            print(attacks)
+
+        if difficulty == 1 and player > 4 and player < 0:
+            print("hey, you can attack the smile outside the building! ")
+            print(attacks)
 
 
 
@@ -264,6 +332,9 @@ shardC = 1
 status1 = []
 damage1 = 9999
 while True:
+    if player != 3:
+        break
+    # isolate will sadly be the only thing usable till further notice, since this shouldn't be the main focus
     if player == 3 and difficulty == 1 or difficulty == 2 or difficulty == 3:
         break
     if player == 3 and difficulty < 1 or difficulty > 3:
