@@ -8,77 +8,83 @@ quickness = [1,2,3,4,5,6,7,8,9,10]
 screen = t.Screen()
 screen.setup(2000, 500)
 
-
-
-
+#finish line is at 190
+finish_line = 190
+#turtle is assined
+t1 = t.Turtle()
 t2 = t.Turtle()
 t3 = t.Turtle()
 t4 = t.Turtle()
 t5 = t.Turtle()
 t6 = t.Turtle()
 
+turtles = [t1,t2,t3,t4,t5]
+#what each turtle color is
+t1.color("blue")
 t2.color("red")
-t2.shape("turtle")
 t3.color("purple")
-t3.shape("turtle")
 t4.color("orange")
-t4.shape("turtle")
 t5.color("pink")
-t5.shape("turtle")
 t6.color("gray")
+
+#turtles are turtles
+t1.shape("turtle")
+t2.shape("turtle")
+
+t3.shape("turtle")
+t4.shape("turtle")
+
+
+
 t6.shape("turtle")
 
-t.goto(0,0)
-t2.goto(0,0)
-t.pendown()
-t2.pendown()
+steps = [7,8,9,10,11,12,13,14,15,16]
+
+t1.teleport(-100,20)
+t2.teleport(-100,40)
+t3.teleport(-100,-20)
+t4.teleport(-100,-40)
+t5.teleport(-100 )
+t6.teleport(900, 250)
+
+t6.right(90)
+t6.forward(490)
+t6.left(180)
+race = True # showing what's true
+while race:
+    if t.xcor() >= finish_line:
+        race = False
+        print(f"the won")
+        break
+
+# makes a choice of steps for all the turtles.
+    t1.speed(r.choice(quickness))
+
+   
 
 
-t6.teleport(2150, 60)
+    t1.forward(r.choice(steps))
 
 
+    t2.speed(r.choice(quickness))
 
-t.shape("turtle")
+    t2.forward(r.choice(steps))
 
-t.fillcolor("blue")
+    t3.speed(r.choice(quickness))
 
-t.speed(r.choice(quickness))
-
-t.teleport(0, 20)
-
-
-t.forward(1000)
-
-t2.color("red")
-
-t2.shape("turtle")
-
-t2.speed(r.choice(quickness))
-
-t2.teleport(0, 40)
-
-t2.forward(1000)
-
-t3.speed(r.choice(quickness))
+    t3.forward(r.choice(steps))
 
 
-t3.forward(1000)
+    t4.speed(r.choice(quickness))
 
-t4.teleport(0,-20)
-
-t4.speed(r.choice(quickness))
-
-t4.forward(1000)
+    t4.forward(r.choice(steps))
 
 
-t5.teleport(0,-40)
+    t5.speed(r.choice(quickness))
 
-t5.speed(r.choice(quickness))
-
-t5.forward(1000)
-
-
-
-t.done()
+    t5.forward(r.choice(steps))\
+    
+    continue
+    
 
 
