@@ -26,4 +26,4 @@ elif user_input == user2 and user_inputpass == user2pass:
 elif user_input == user3 and user_inputpass == user3pass:
     print("Hey welcome back!", user3, "Do your duck things I guess.") 
 else:
-    print("you may hae typed your username or password wrong, or you don't have an account")
+    print("you may have typed your username or password wrong, or you don't have an account")
