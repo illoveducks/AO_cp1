@@ -21,13 +21,45 @@ import random
 # maybe exit and enter switch, dimensions stay the same, same square.
 # but it may tilt?  
 
-#
+
+
+
+
+
 
 
 # setting up my screen how tall and wide it is.
 screen = t.Screen()
 screen.setup(800, 800)
 
+
 hand.sleep(4)
+
+
+# my brain is gone
+# make a turtle make a maze for funsies
+# I'll have to make a lot of turtle if I want to do that...
+# might copy the board
+
+# giving a class and setting variables
+# Uh... Yeah stack is a list
+
+def is_solvable(row_grid, col_grid):
+    size = len(row_grid) - 1
+    visited = set()
+    stack = [(0, 0)]
+
+    while stack:
+        # putting stuff in a stack
+        x, y = stack.pop
+
+        if x== size - 1 and y == size - 1:
+            return True
+        if (x, y) in visited:
+            continue
+            #yeah...?
+        visited.add(x, y)
+
+        if x < size - 1
 
 

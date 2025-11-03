@@ -55,7 +55,7 @@ while race:
     if t.xcor() >= finish_line:
         race = False
         print(f"the won")
-        break
+        t.done()
 
 # makes a choice of steps for all the turtles.
     t1.speed(r.choice(quickness))
