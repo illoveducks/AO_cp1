@@ -1,1 +1,2 @@
-hand.sleep(4)
+
+hand.sleep(1)

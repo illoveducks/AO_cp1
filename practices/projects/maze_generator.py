@@ -21,6 +21,7 @@ import random
 # maybe exit and enter switch, dimensions stay the same, same square.
 # but it may tilt?  
 
+t.shape("turtle")
 
 
 
@@ -30,10 +31,23 @@ import random
 
 # setting up my screen how tall and wide it is.
 screen = t.Screen()
-screen.setup(800, 800)
+screen.setup(1100, 1100)
+
+# setting parameter, just making my shape, then I'll set the grid
+# the grid is the parameter inside if I know how to do that, uh... yeah
+t.teleport(-300, -100)
+
+t.forward(200)
+
+t.teleport(20)
+
+t.forward(50)
+t.left(90)
+t.forward(300)
+t.left
 
 
-hand.sleep(4)
+hand.sleep(1)
 
 
 # my brain is gone
@@ -43,13 +57,6 @@ hand.sleep(4)
 
 # setting two grids
 
-def maze():
-    grid_row = [
-
-
-
-
-                ]
 
 
 
