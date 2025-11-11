@@ -26,7 +26,7 @@ if player == 1:
     attacks = ["punch1 ", "adrenaline2",  ]
     print(f"here are your stats, {"hp",health, "dmg",damage,"def",defense, } here are your abilities/attacks for the time being {attacks}  " )
     print("Now that you have a class you should pick what difficulty you want! There are three and one secret one, you'll have find that out yourself!")
-   
+    
 
 
 elif player == 2:
@@ -251,7 +251,7 @@ if difficulty == 1 or difficulty == 2 or difficulty == 3:
     print("Although... i will say... There are things out there now, weird creatures that went through out town... Sadly.")
     print("maybe you can help!")
     
-player_list = ["slime","player"]
+player_list = ["1","2"]
 
 while True:
         if difficulty != 1:
@@ -266,33 +266,37 @@ while True:
             print(health2, "slime's health")
             print(health, "your health ")
             print(defense2, "slime shield")
+
             print("let's flip this coin!")
+            
             if health2 < 1:
                 print("you win! ")
                 break
             if health < 1:
                 print("let's pretend like that didn't happen...")
+                break
+
             ran.choice(player_list)
 
-            if ran.choice(player_list) == "slime":
+            if ran.choice(player_list) == "1":
                 print("the slime jumps on you! ")
                 health -= damage2
   
-            elif ran.choice == "player":
+            elif ran.choice == "2":
                 print("your turn!")
             
                 print(attacks)
            
                 moveset = int(input("punch1, adrenaline2,\n" ))
 
-            if moveset == 1 and defense < 1:
+            elif moveset and defense < 1:
                 health2 -= damage
 
             elif moveset == 1 and defense2 > 1:
                 print("aw...the slime had shield")
                 defense2 -= damage
 
-            if moveset == 2:
+            elif moveset == 2:
                 print("pump up the action!")
                 damage += 5
                 
