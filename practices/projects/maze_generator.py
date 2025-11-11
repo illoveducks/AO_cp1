@@ -1,6 +1,6 @@
-import time as hand # importing time for my brain :D
+
 import turtle as t # importing turtle
-import random
+import random as r
 
 #Save the file as maze_generator.py
 # Include your 1st line comment with initials, class period, and assignment name
@@ -16,16 +16,6 @@ import random
 #Commit and push your code to Github
 
 
-# I need to make it so it randomizes the maze, the dimensions should always be the same,
-# the thing that needs to be changed is the inside.
-# maybe exit and enter switch, dimensions stay the same, same square.
-# but it may tilt?  
-
-t.shape("turtle")
-
-
-
-
 
 
 
@@ -33,29 +23,32 @@ t.shape("turtle")
 screen = t.Screen()
 screen.setup(1100, 1100)
 
-# setting parameter, just making my shape, then I'll set the grid
-# the grid is the parameter inside if I know how to do that, uh... yeah
-t.teleport(-300, -100)
+# assign rows and columns
+rows = 9
+columns = 9
 
-t.forward(200)
+# a list for empty walls 
+ro = []
+col = []
 
-t.teleport(20)
+# a for thing
+for i in range(rows + 1):
+# making another list for rows
+    row = []
+    # another loop for columns
+    for co in range(columns):
+        ro.append(True)
+    ro.append(row)
 
-t.forward(50)
-t.left(90)
-t.forward(300)
-t.left
+
+# another list but for columns
+for c in range(columns + 1 ):
+    colu = []
+    for c
 
 
-hand.sleep(1)
 
 
-# my brain is gone
-# make a turtle make a maze for funsies
-# I'll have to make a lot of turtle if I want to do that...
-# might copy the board
-
-# setting two grids
 
 
 
