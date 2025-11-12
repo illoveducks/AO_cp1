@@ -1,5 +1,5 @@
 import turtle as t  # importing turtle
-import random as r
+import random 
 
 #Save the file as maze_generator.py
 # Include your 1st line comment with initials, class period, and assignment name
@@ -23,22 +23,42 @@ row_count = 6
 column_count = 6
 
 # a list for empty walls
-horizontal_walls = [[0, 1, 1, 1, 1, 1], [0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0],
-                    [0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0],
+horizontal_walls = [[0, 1, 1, 1, 1, 1], 
+                    [0, 0, 0, 0, 0, 0], 
+                    [0, 0, 1, 0, 0, 0],
+                    [0, 0, 1, 0, 0, 0], 
+                    [0, 0, 0, 0, 0, 0], 
+                    [0, 0, 0, 0, 0, 0],
                     [1, 1, 1, 1, 1, 0]]
 
 # a list for empty walls
-vertical_walls = [[1, 0, 0, 0, 0, 0, 1], [1, 0, 0, 0, 0, 0, 1],
-                  [1, 0, 0, 0, 0, 0, 1], [1, 0, 0, 0, 0, 0, 1],
-                  [1, 0, 0, 0, 0, 0, 1], [1, 0, 0, 0, 0, 0, 1]]
+vertical_walls = [[1, 0, 0, 1, 0, 0, 1],
+                   [1, 0, 0, 0, 0, 0, 1],
+                  [1, 0, 0, 0, 0, 0, 1], 
+                  [1, 0, 0, 0, 0, 0, 1],
+                  [1, 0, 0, 0, 0, 0, 1], 
+                  [1, 0, 0, 0, 0, 0, 1]]
 
-# setting up the turtle
 
-maze_painter = t.Turtle()
 
-maze_painter.shape("turtle")
-maze_painter.color("blue")
 
-maze_solver = t.Turtle()
-maze_solver.shape("turtle")
-maze_solver.color("red")
+#print the maze
+t.speed(15)
+t.teleport(-450,-450)
+t.left(90)
+t.forward(900)
+t.teleport(-450, 500)
+t.right(90)
+t.forward(900)
+t.right(90)
+t.forward(1000)
+t.right(90)
+t.forward(900)
+t.teleport(-450, -450)
+t.right(180)
+
+for i in horizontal_walls:
+    
+
+
+t.done()

@@ -44,12 +44,12 @@ order = input("please type a number 1-3 as your main course, P.S sorry for this 
 
 
 
-total = total["cost"]
+total =[0.0, +=]
 
 while True:
     if order == "1":
         main_order.append("burger")
-
+        total.append(main["burger"])
         break
 
 
@@ -60,9 +60,7 @@ print(total)
 
 
 
-tax = total * .1
 
-actual_total = (total + tax) 
 
 
 
