@@ -1,5 +1,4 @@
-
-import turtle as t # importing turtle
+import turtle as t  # importing turtle
 import random as r
 
 #Save the file as maze_generator.py
@@ -15,41 +14,31 @@ import random as r
 #Clearly mark the start and end points of the maze
 #Commit and push your code to Github
 
-
-
-
-
 # setting up my screen how tall and wide it is.
 screen = t.Screen()
 screen.setup(1100, 1100)
 
 # assign rows and columns
-rows = 9
-columns = 9
+row_count = 6
+column_count = 6
 
-# a list for empty walls 
-ro = []
-col = []
+# a list for empty walls
+horizontal_walls = [[0, 1, 1, 1, 1, 1], [0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0],
+                    [0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0],
+                    [1, 1, 1, 1, 1, 0]]
 
-# a for thing
-for i in range(rows + 1):
-# making another list for rows
-    row = []
-    # another loop for columns
-    for co in range(columns):
-        ro.append(True)
-    ro.append(row)
+# a list for empty walls
+vertical_walls = [[1, 0, 0, 0, 0, 0, 1], [1, 0, 0, 0, 0, 0, 1],
+                  [1, 0, 0, 0, 0, 0, 1], [1, 0, 0, 0, 0, 0, 1],
+                  [1, 0, 0, 0, 0, 0, 1], [1, 0, 0, 0, 0, 0, 1]]
 
+# setting up the turtle
 
-# another list but for columns
-for c in range(columns + 1 ):
-    colu = []
-    for c
+maze_painter = t.Turtle()
 
+maze_painter.shape("turtle")
+maze_painter.color("blue")
 
-
-
-
-
-
-
+maze_solver = t.Turtle()
+maze_solver.shape("turtle")
+maze_solver.color("red")
