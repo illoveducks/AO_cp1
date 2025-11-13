@@ -37,7 +37,7 @@ size = {
 }
 
 
-
+# every while statement breaks after the customers order is valid
 
 
 
@@ -92,6 +92,7 @@ while True:
         first_side = (side_dishes["salad5"])
         print(" salad added to order")
         break
+    # stupid proof
     elif first_side != "1" or first_side != "2" or  first_side != "3" or first_side != "4" or first_side != "5": 
         print("invalid order") 
 # a loop just in case
@@ -122,6 +123,7 @@ while True:
                 second_side = (side_dishes["salad5"])
                 print("salad added to order")
                 break
+            # stupid proof
             elif  second_side != "1" or second_side != "2" or  second_side != "3" or second_side != "4" or second_side != "5": 
              print("invalid order") 
 
@@ -145,6 +147,7 @@ while True:
     elif drink_choice == "4":
         drink_choice = (drinks["Coke4"])
         break
+    # stupid proof
     elif  drink_choice != "1" or drink_choice != "2" or  drink_choice != "3" or drink_choice != "4":
             print("invalid order") 
 # another loop just in case
@@ -166,15 +169,18 @@ while True:
          size_choice = (size["large3"])   
          print(" large drink added ") 
          break
+    # stupid proof
     elif size_choice != "1" or size_choice != "2" or size_choice != "3":
          print("invalid order")
 
 
+# calculates order
+cost = main_order + first_side + second_side + drink_choice + size_choice
 
-cost = main_order + first_side + second_side + drink_choice
-
+# calculates tax
 tax = cost * .1
 
+# final price after combine the two
 final_price = cost + tax
 
 print("tax is 10% value on the order")
@@ -183,6 +189,7 @@ print( "main order:",main_order,
         "side:", first_side,
       "side:",  second_side,
       "drink:", drink_choice,
+      "size:", size_choice,
       "this costs", final_price,
       "thanks for ordering at this cheap place.")
 
