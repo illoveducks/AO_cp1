@@ -52,6 +52,7 @@ size = {
 
 print("don't judge we're a small place ")
 
+<<<<<<< HEAD
 print("burger1","chicken2 alfredo", "chicken sandwich3")
 
 while True:
@@ -61,6 +62,16 @@ while True:
     if main_order == "1":
         print(f"a burger has been added to your order it costs {main['burger']}")
         main_order = main["burger"]
+=======
+
+
+total =[0.0, +=]
+
+while True:
+    if order == "1":
+        main_order.append("burger")
+        total.append(main["burger"])
+>>>>>>> refs/remotes/origin/main
         break
     if main_order == "2":
         print(f" chicken alfredo has been added to your order it costs {main["chicken alfredo"]}")

@@ -1,6 +1,5 @@
-
-import turtle as t # importing turtle
-import random as r
+import turtle as t  # importing turtle
+import random 
 
 #Save the file as maze_generator.py
 # Include your 1st line comment with initials, class period, and assignment name
@@ -15,41 +14,51 @@ import random as r
 #Clearly mark the start and end points of the maze
 #Commit and push your code to Github
 
-
-
-
-
 # setting up my screen how tall and wide it is.
 screen = t.Screen()
 screen.setup(1100, 1100)
 
 # assign rows and columns
-rows = 9
-columns = 9
+row_count = 6
+column_count = 6
 
-# a list for empty walls 
-ro = []
-col = []
+# a list for empty walls
+horizontal_walls = [[0, 1, 1, 1, 1, 1], 
+                    [0, 0, 0, 0, 0, 0], 
+                    [0, 0, 1, 0, 0, 0],
+                    [0, 0, 1, 0, 0, 0], 
+                    [0, 0, 0, 0, 0, 0], 
+                    [0, 0, 0, 0, 0, 0],
+                    [1, 1, 1, 1, 1, 0]]
 
-# a for thing
-for i in range(rows + 1):
-# making another list for rows
-    row = []
-    # another loop for columns
-    for co in range(columns):
-        ro.append(True)
-    ro.append(row)
-
-
-# another list but for columns
-for c in range(columns + 1 ):
-    colu = []
-    for c
+# a list for empty walls
+vertical_walls = [[1, 0, 0, 1, 0, 0, 1],
+                   [1, 0, 0, 0, 0, 0, 1],
+                  [1, 0, 0, 0, 0, 0, 1], 
+                  [1, 0, 0, 0, 0, 0, 1],
+                  [1, 0, 0, 0, 0, 0, 1], 
+                  [1, 0, 0, 0, 0, 0, 1]]
 
 
 
 
+#print the maze
+t.speed(15)
+t.teleport(-450,-450)
+t.left(90)
+t.forward(900)
+t.teleport(-450, 500)
+t.right(90)
+t.forward(900)
+t.right(90)
+t.forward(1000)
+t.right(90)
+t.forward(900)
+t.teleport(-450, -450)
+t.right(180)
+
+for i in horizontal_walls:
+    
 
 
-
-
+t.done()
