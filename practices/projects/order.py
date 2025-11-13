@@ -50,36 +50,16 @@ size = {
 "2" == main["chicken alfredo"]
 "3" == main["chicken sandwich"]
 
-print("don't judge we're a small place ")
-
-<<<<<<< HEAD
-print("burger1","chicken2 alfredo", "chicken sandwich3")
-
-while True:
-
-    main_order = input("please type a number 1-3 as your main course,\n")
-    
-    if main_order == "1":
-        print(f"a burger has been added to your order it costs {main['burger']}")
-        main_order = main["burger"]
-=======
+order = input("please type a number 1-3 as your main course, P.S sorry for this restaruant fast food place not having that many things to order :( )")
 
 
-total =[0.0, +=]
+
+total = total["cost"]
 
 while True:
     if order == "1":
         main_order.append("burger")
-        total.append(main["burger"])
->>>>>>> refs/remotes/origin/main
-        break
-    if main_order == "2":
-        print(f" chicken alfredo has been added to your order it costs {main["chicken alfredo"]}")
-        main_order = main["chicken alfredo"]
-        break
-    if main_order == "3":
-        print(f" chicken sandwich has been added to your order it costs {main["chicken sandwich"]}")
-        main_order = main["chicken sandwich"]
+
         break
     elif main_order != "1" and main_order != "2" and main_order != "3":
         print("invalid order")
@@ -97,14 +77,9 @@ print(cost)
 
 
 
+tax = total * .1
 
-
-
-
-
-
-
-
+actual_total = (total + tax) 
 
 
 
