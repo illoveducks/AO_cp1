@@ -48,7 +48,7 @@ while True:
 #shows main courses
     print(main)
 # asks user what he or she wants for their main course
-    main_order = input("what would like your main course to be? 1-3 \n ")
+    main_order = input("the number beside them is the price, what would like your main course to be? tipe 1-3 \n ")
 # depending what number sets the value as that
     if main_order == "1":
         main_order = (main["burger1"])
@@ -69,7 +69,7 @@ while True:
     print(side_dishes)
     # show side dishes
     # ask user what he wants
-    first_side = input("what would you like your side dish to be? type 1-5 \n ")
+    first_side = input("the number beside them is the price, what would you like your side dish to be? type 1-5 \n ")
 
     # sets the value depending on what the user adds
     if first_side == "1":
@@ -191,7 +191,7 @@ print( "main order:",main_order,
       "drink:", drink_choice,
       "size:", size_choice,
       "this costs", final_price,
-      "thanks for ordering at this cheap place.")
+      "thanks for ordering at this place.")
 
 
 
