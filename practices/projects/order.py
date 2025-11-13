@@ -19,50 +19,81 @@ main = {
 
 
 side_dishes = {
-
+"fries": 2.50,
+"curly fries": 2.75,
+"chicken nuggests ": 2.80,
+"bacon": 1.00,
 
 
 }
 
 
 drinks = {
+"water": 0,
+" orange juice": 0.75,
+" Dr.pepper": 1,
+"Coke": 1, 
+}
 
-
+size = {
+"small": 0.75,
+"medium/normal": 1.25,
+"large": 1.75,
 
 }
 
-total = {
-    "cost": 0
-}
+
+
 
 
 "1" == main["burger"]
 "2" == main["chicken alfredo"]
 "3" == main["chicken sandwich"]
 
-order = input("please type a number 1-3 as your main course, P.S sorry for this restaruant fast food place not having that many things to order :( )")
+print("don't judge we're a small place ")
 
-
-
-total = total["cost"]
+print("burger1","chicken2 alfredo", "chicken sandwich3")
 
 while True:
-    if order == "1":
-        main_order.append("burger")
 
+    main_order = input("please type a number 1-3 as your main course,\n")
+    
+    if main_order == "1":
+        print(f"a burger has been added to your order it costs {main['burger']}")
+        main_order = main["burger"]
         break
+    if main_order == "2":
+        print(f" chicken alfredo has been added to your order it costs {main["chicken alfredo"]}")
+        main_order = main["chicken alfredo"]
+        break
+    if main_order == "3":
+        print(f" chicken sandwich has been added to your order it costs {main["chicken sandwich"]}")
+        main_order = main["chicken sandwich"]
+        break
+    elif main_order != "1" and main_order != "2" and main_order != "3":
+        print("invalid order")
+        
 
 
 
-print(total)
+
+
+cost = main_order 
+
+print(cost)
 
 
 
 
 
-tax = total * .1
 
-actual_total = (total + tax) 
+
+
+
+
+
+
+
 
 
 
