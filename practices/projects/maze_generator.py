@@ -56,8 +56,22 @@ t.right(90)
 t.forward(900)
 t.teleport(-450, -450)
 t.right(180)
+t.forward(90)
+t.penup()
+t.forward(270)
+t.pendown()
+t.forward(90)
+t.penup()
+t.forward(270)
+t.pendown()
+t.forward(180)
+t.teleport(-450, -300)
 
-for i in horizontal_walls:
+
+# Build walls, 
+# then build vertical walls, 
+# how to randomize them, no clue
+
     
 
 

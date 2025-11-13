@@ -21,9 +21,9 @@ main = {
 side_dishes = {
 "fries": 2.50,
 "curly fries": 2.75,
-"chicken nuggests ": 2.80,
+"chicken nuggets ": 2.80,
 "bacon": 1.00,
-
+"salad": 
 
 }
 
@@ -50,16 +50,21 @@ size = {
 "2" == main["chicken alfredo"]
 "3" == main["chicken sandwich"]
 
-order = input("please type a number 1-3 as your main course, P.S sorry for this restaruant fast food place not having that many things to order :( )")
+main_order = input("please type a number 1-3 as your main course, P.S sorry for this restaruant fast food place not having that many things to order :( )")
 
 
 
-total = total["cost"]
+
 
 while True:
-    if order == "1":
-        main_order.append("burger")
-
+    if main_order == "1":
+        main_order = (main["burger"])
+        break
+    if main_order == "2":
+        main_order = (main["chicken alfredo"])
+        break
+    if main_order == "3":
+        main_order = (main["chicken sandwich"])
         break
     elif main_order != "1" and main_order != "2" and main_order != "3":
         print("invalid order")
@@ -69,7 +74,7 @@ while True:
 
 
 
-cost = main_order 
+cost = main_order + first_side + second_side + drink
 
 print(cost)
 
@@ -77,9 +82,6 @@ print(cost)
 
 
 
-tax = total * .1
-
-actual_total = (total + tax) 
 
 
 
