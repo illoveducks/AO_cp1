@@ -183,8 +183,10 @@ tax = cost * .1
 # final price after combine the two
 final_price = cost + tax
 
-print("tax is 10% value on the order")
+#shows sales tax 
+print("sales tax is 10% ")
 
+# shows user order
 print( "main order:",main_order,
         "side:", first_side,
       "side:",  second_side,
