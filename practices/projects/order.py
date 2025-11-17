@@ -183,17 +183,17 @@ tax = cost * .1
 # final price after combine the two
 final_price = cost + tax
 
-#shows sales tax 
+# tells person how much the tax is.
 print("sales tax is 10% ")
 
-# shows user order
+# shows order
 print( "main order:",main_order,
         "side:", first_side,
       "side:",  second_side,
       "drink:", drink_choice,
       "size:", size_choice,
       "this costs", final_price,
-      "thanks for ordering at this place.")
+      "thank you for ordering at this place.")
 
 
 
