@@ -1,6 +1,6 @@
 # Ao 1st squared numbers
 
-# List of numbers
+# List of numbers which are floats now
 numbers = [3.0, 7.0, 12.0, 25.0, 30.0, 45.0, 50.0, 65.0, 70.0, 85.0, 90.0, 105.0, 110.0, 125.0, 130.0, 145.0, 150.0, 165.0, 170.0, 185.0, 190.0, 205.0, 210.0, 225.0, 230.0, 245.0, 250.0, 265.0, 270.0, 285.0]
 
 
@@ -39,7 +39,7 @@ for i in squared_nums:
         # puts it all together!
         print("original", original, "squared:", i)
 
-
+# Had to convert them to floats so that it worked
 
        
 
