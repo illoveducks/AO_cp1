@@ -15,7 +15,6 @@ def square(num):
 
 # Setting up two maps
 squared_nums = list(map(lambda num: num**2, numbers ))
-print(squared_nums)
 
 # lambda used to help with certain equations
 numbers = list(map(lambda num: num+0, numbers))
