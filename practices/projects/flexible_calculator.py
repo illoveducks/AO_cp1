@@ -6,6 +6,10 @@ print("welcome to my flexible calculator!")
 print("pick an operation! ")
 
 # just for stupid proof
+
+
+
+
 while True:
     # ask user for what equation they want
     equation = input("sum1, average2, max3, min4, product5, please type 1-5:\n ")
@@ -17,9 +21,14 @@ while True:
     # write down process in here and others
     # after user finishes writing their numbers will calculate the sum 
 
-            num =  input.append(numbers("what number would you like to add? type ' done' when you're done" ))
+        numbers = []
+        def sum(numbers):
+            total = 0
+        for num in numbers:
+            
 
-
+            
+   
         
 
 
