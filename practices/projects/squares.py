@@ -1,7 +1,7 @@
 # Ao 1st squared numbers
 
 # List of numbers
-numbers = [3, 7, 12, 25, 30, 45, 50, 65, 70, 85, 90, 105, 110, 125, 130, 145, 150, 165, 170, 185, 190, 205, 210, 225, 230, 245, 250, 265, 270, 285]
+numbers = [3.0, 7.0, 12.0, 25.0, 30.0, 45.0, 50.0, 65.0, 70.0, 85.0, 90.0, 105.0, 110.0, 125.0, 130.0, 145.0, 150.0, 165.0, 170.0, 185.0, 190.0, 205.0, 210.0, 225.0, 230.0, 245.0, 250.0, 265.0, 270.0, 285.0]
 
 
 # Print numbers up here maybe to naje ut easuer 
@@ -17,15 +17,39 @@ def square(num):
 squared_nums = list(map(lambda num: num**2, numbers ))
 print(squared_nums)
 
+# lambda used to help with certain equations
 numbers = list(map(lambda num: num+0, numbers))
 
+
+
+
 # make it one loop to be able to combine them
-for num in squared_nums:
-    print("squared: ", num)
-
-for num in numbers:
-    print("original", num)
+#for num in squared_nums: 
+   # print("squared: ", num)
 
 
+#for num2 in numbers:
+#    print("original", num)
 
- 
+
+# bit of a work around but here's my table, I combined them.
+for i in squared_nums:
+        # Does square root to reverse operation to get me the original
+        original = i **0.5
+        # puts it all together!
+        print("original", original, "squared:", i)
+
+
+
+       
+
+
+    
+
+
+
+
+
+
+
+

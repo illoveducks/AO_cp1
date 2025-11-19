@@ -10,7 +10,7 @@ def divide(num):
     return num/3
 
 
-new_nums = map(lambda num: num/3 , numbers)
+new_nums = list(map(lambda num: num/3 , numbers))
 print(new_nums)
 for num in new_nums:
-    print(" divided: ",num)
+    print"original:" " divided: "  num)
