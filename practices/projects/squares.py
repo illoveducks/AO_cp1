@@ -26,6 +26,7 @@ numbers = list(map(lambda num: num+0, numbers))
 #for num in squared_nums: 
    # print("squared: ", num)
 
+# used these for reference
 
 #for num2 in numbers:
 #    print("original", num)
