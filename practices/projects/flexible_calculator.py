@@ -18,14 +18,28 @@ while True:
 
     if equation == "1":
         print("alright addition, now I need numbers!")
+    
     # write down process in here and others
     # after user finishes writing their numbers will calculate the sum 
-
-        numbers = []
-        def sum(numbers):
-            total = 0
-        for num in numbers:
+        while True:
+            choice = input("you can plug numbers in now, type ' done ' when you're finished")
+           
+            numbers = []
+            def sum(numbers):
             
+                total = 0
+                choice = input("you can plug numbers in now, type ' done ' when you're finished")
+           
+
+            if choice > 0 or choice < 0:
+                    numbers.append(choice)
+             
+                elif choice == "done":
+                    for num in numbers:
+                        total += num
+                    return total 
+                else: 
+                 print("invalid")
 
             
    
