@@ -22,18 +22,20 @@ num = 1
 print("pick a number that is not a negative or decimal ")
 
 while True:
+    try:
+        choice = int(input("type a number \n "))
+ # This is something I added, this checks something just to make sure that if it's a calue error that it goes back up
 
-    choice = int(input("type a number \n "))
- 
-
+    except ValueError:
+        print("please type a whole number.")
+        continue
 
 
         
 
     if choice < 0:
         print("no negatives ")
-    elif choice < 1:
-        print("no numbers smaller than one please! ")
+        continue
 
     elif choice == choice and choice > 1:
         
