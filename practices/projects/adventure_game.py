@@ -9,6 +9,8 @@
 # The game will start wow... By someone pressing that play button looking thing is VS code
 
 
+# WILL PROBABLY HAVE TO MAKE THE WHOLE GAME A NESTED WHILE TRUE SO WHEN YOU RETRY THE GAME IT GOES BACK UP!!!
+
 
 # Need a dictionary for items equipped I will need help on that
 # need a dictionary for stats
@@ -31,8 +33,6 @@
 
 # Display " Let it be that way then... Do you want it to end? 
 # choice ' yes ', ' no '
-
-
 
 
 #  if user picks ' no ' Mark heads outside, to be greeted by his neighbor who's name he doesn't remember
@@ -69,11 +69,17 @@
     # display " A gemstone... So bright in its chest, I want it... " 
     # user choice ' Don't ' ( attempt to fight temptation ), ' go past it ', ' go for it '
 
-    # if user choice is 'don't ' 
+
+    # if user choice is 'don't ' or 'go for it' 
         # Display " i can't resist... i need it..."
         # Then mark will engage with the desert golem, 
-        # make a nested loop, again
+        # make a nested loop, again for the fight of course...
+        # Golem has a 100 hp and 3 defense, defense is damage reduction that goes against damage, so...
+        # golem HP - (damage - defense) that's how it will work The desert Golem will have three abilities
+# boulder throw, does 10 damage, The Grand Gem, a blinding light that seaers over the fight, heals both you and golem by 5 HP ( removes 1 defense from golem can overheal), solidify causes golem to gain 1 defence
 
+# ELSE if ' go past it '
+    # Display 'Probably for the best... Thanks...' 
 
 
 # And make a nested while true! If...That doesn't break it...

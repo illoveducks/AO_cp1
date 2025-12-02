@@ -10,7 +10,16 @@ damage += weapon_damage["stick"]
 
 print(damage)
 
+hello = 4
 
 while True:
-    print(5)   
-    break
+    if hello == 4:
+        print(5)   
+        break
+
+
+    while True:
+        if hello == 4:
+            break
+        else:
+            print("hi")
