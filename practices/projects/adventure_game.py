@@ -8,13 +8,110 @@
 
 # The game will start wow... By someone pressing that play button looking thing is VS code
 
+# make variables for descriptions
+ 
+# A variable for a weapon equipped
 
-
-# Need a dictionary for items equipped I will need help on that
-# need a dictionary for stats
+# need a dictionary for stats specifically for Mark, health, base damage, armor, and equipped things ( a list )
 
 # The setting will begin with 'Mark' waking up at home
 
+# Mark will say a lot of things then head outside or break free depending on what you do
+
+#Mark will be greeted by a neighbor, talking about new bridges
+
+# Making a while true loop so it doesn't break, and for stupid proof goes back up here if retry is " yes "
+
+# Mark will ask you where you want to go! 
+# Make a function that checks if you put a valid input. 
+
+# You can go to these bridges, or head back home to explore it more if you want, although there's not much there
+
+# Make a function that checks where you go
+
+#the three places you can go to, the bridges will be the desert, the new town, and the forest
+# end the loop after decision is made
+# after heading to your location I will make a nested while true: so it doesn't restart you all the way back
+
+# make a while true right here so again, you don't go ALLL the way back.
+# In the desert you can find your first armor set, a armor set made of sandstone, not the best...But it gets you through, you can also obtain the " Gemstone " and memory shard of temparence frm the desert golem
+# The armor set will be obtained in the temple,
+# The temple will have puzzles, more of math problems, get one wrong, puts you all the way back at the start of the temple, the temple is where you get to when you head forward
+
+# make a function that makes sure your input is valid
+
+# or you can ignore the temple and keep heading forward to reach the jungle!
+
+# The golem is found when you head right, which is a boss you will be forced to fight, as its light draws you into it.
+
+# Make a function for the golem fight, the desert golem goes first all the time, good luck blocking! :D ( this boss cannot be blocked )
+# When you die to the Golem, it resurrects you as a second chance to go against it, mark can't resist the temptation so... of course he goes for it, ( progress will save)
+
+# When you kill the golem you obtain a gemstone, and of course a memory fragment that increases defense by 1! 
+
+# the gemstone costs stamina to use, a life draining force towards your enemies, seems the golem was using it to help both of you...Why? That will be the description. descriptions of items shown when obtained
+
+
+
+# Heading to the left leads you to the forest! 
+
+# the gemstone costs stamina to use, a life draining force towards your enemies, seems the golem was using it to help both of you...Why? That will be the description of it when obtained
+
+
+
+
+
+# In the forest you can get your first weapon! A stick, if you pick one up which will be a choice
+# When you equip a weapon it will rename your weapon equipped variable, so if you pick another one up...It just...Does nothing if you get the same weapon
+# Of course there will be a thing to prevent you from getting the same weapon. Over... And over... for the goal of nothing
+# you are not forced to pick up things, it is an option though, Mark cannot carry multiple weapons sadly, 
+
+# The first and only boss you'll find in the forest is the wolf! You aren't forced to fight enemies, for the most part, you need to kill 2 at least before entering the final area, through the gate as I like to say
+
+# When you encounter the wolf, it is asleep, you can leave it alone, or agro it, which will wake it up. That is how the fight starts!
+# I will make a function that keeps the fight running till either Mark or the wolf are under 1 hp as that will zero if it is under or a negative!
+# Damage of attacks are only displayed for the player, not the enemies attacks, unless you look at your health when it hurts you
+# Fighting will sadly not start randomly, it will likely be the bosses or enemies that go first. Bosses with patterns the player will go first.
+
+# The wolf boss will have a pattern to make it a lot easier to deal with as it will usually be most users first boss. it was start with a scratch, pounce, then howl, howl does nothing, scratch can be blocked, pounce cannot.
+# A succesful block heals Mark by 3 hp! It can go over your max hp, Over heal basically. 
+
+# Once the fight ends Mark will go back to his normal Max Hp, so you don't just leave the fight with 50 health... and end the loop and give you your memory shard
+
+# if you lose a fight it will end the loop, it would ask if you would like to retry, if you say yes it goes all the way back to the beginning if you say no, it ends the game 
+
+# Memory fragments will be permanent upgrades when obtained! Some to armor, some towards damage, and some for new abilities that require " Stamina " be careful not too get them all though... Wouldn't recommend it
+
+
+
+# Explaining movement
+# You can pick directions to make Mark go, forward, left, or right, each will lead to a different place
+
+# Typically Forward will lead you towards the gate ( final area ),  or a boss
+
+# Right will usually make you start heading towards a new biome or location, and same with left this is excluding the desert
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# Ignore this... I thought we were supposed to write our code in psuedocode ( oops )
 # display " this feels famaliar, " wait a second display " make myself breakfast, bacon, eggs, like always"
 # wait a bit again... display " i thought to myself something feels different..."
 
