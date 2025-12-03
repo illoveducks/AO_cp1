@@ -73,7 +73,7 @@
 
 # The wolf boss will have a pattern to make it a lot easier to deal with as it will usually be most users first boss. it was start with a scratch, pounce, then howl, howl does nothing, scratch can be blocked, pounce cannot.
 # A succesful block heals Mark by 3 hp! It can go over your max hp, Over heal basically. 
-
+print("hello!")
 # Once the fight ends Mark will go back to his normal Max Hp, so you don't just leave the fight with 50 health... and end the loop and give you your memory shard
 
 # if you lose a fight it will end the loop, it would ask if you would like to retry, if you say yes it goes all the way back to the beginning if you say no, it ends the game 
