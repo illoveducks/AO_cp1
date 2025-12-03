@@ -8,7 +8,7 @@
 
 # The game will start wow... By someone pressing that play button looking thing is VS code
 
-
+# Need a variable for Mark's location
 
 # need a dictionary for stats specifically for Mark, health, base damage, armor, and equipped things ( a list )
 
@@ -80,6 +80,20 @@
 
 # Memory fragments will be permanent upgrades when obtained! Some to armor, some towards damage, and some for new abilities that require " Stamina " be careful not too get them all though... Wouldn't recommend it
 
+# In the jungle you can find the other boss, the grand panda, the grand panda grants a memory fragment that increases damage and armor ( By 1 )
+
+# while true, then break after an answer is made
+# in the jungle Mark only wants to head forward as he doesn't want to get lost, sadly this part of the game will be the annoying unskippable cutscene
+# Mark will talk to the user, asking him why he's doing all of this, then the panda is there
+# You can either force Mark to fight it or not, 
+
+# make a function if you chose 'yes' it will go to this while true loop
+# make a function for the fight of the panda! panda will have 4 abilities, sleep, eat, scratch, lazy jumo
+# Sleep will allow the panda to heal 4 hp, eat makes the panda deal 1 extra damage, scratch deals 5 damage, lazy jump does 10
+# Mark of course just... here... Doing what he does best listening to you
+
+# upon killing the panda, Mark begins to realize how cruel you are. And gets the memory fragment of Sadness
+# description shown when obtained " I feel guilt and sorrowness just by holding this, with it around me..I realize the wor;d is a terrible place."
 
 
 # Explaining movement
@@ -109,7 +123,7 @@
 
 
 
-# Ignore this... I thought we were supposed to write our code in psuedocode ( oops )
+# Ignore this... I thought we were supposed to write our code in psuedocode instead of it being simplified. 
 # display " this feels famaliar, " wait a second display " make myself breakfast, bacon, eggs, like always"
 # wait a bit again... display " i thought to myself something feels different..."
 
