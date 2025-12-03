@@ -8,7 +8,9 @@
 
 # The game will start wow... By someone pressing that play button looking thing is VS code
 
-# Need a variable for Mark's location
+# Things to note: bosses will have patterns, the only boss that goes first is the desert golem, memory fragments are permanent upgrades that will be added towards the stats of Mark, weapons will not be able to be grabbed twice, mark will notice your stupidity, you can downgrade...But Mark won't be too happy
+
+# ALSO Defense and armor are the same thing!
 
 # need a dictionary for stats specifically for Mark, health, base damage, armor, and equipped things ( a list )
 
@@ -53,12 +55,6 @@
 
 # Heading to the left leads you to the forest! 
 
-# the gemstone costs stamina to use, a life draining force towards your enemies, seems the golem was using it to help both of you...Why? That will be the description of it when obtained
-
-
-
-
-
 # In the forest you can get your first weapon! A stick, if you pick one up which will be a choice
 # When you equip a weapon it will rename your weapon equipped variable, so if you pick another one up...It just...Does nothing if you get the same weapon
 # Of course there will be a thing to prevent you from getting the same weapon. Over... And over... for the goal of nothing
@@ -73,12 +69,14 @@
 
 # The wolf boss will have a pattern to make it a lot easier to deal with as it will usually be most users first boss. it was start with a scratch, pounce, then howl, howl does nothing, scratch can be blocked, pounce cannot.
 # A succesful block heals Mark by 3 hp! It can go over your max hp, Over heal basically. 
-print("hello!")
+
 # Once the fight ends Mark will go back to his normal Max Hp, so you don't just leave the fight with 50 health... and end the loop and give you your memory shard
 
 # if you lose a fight it will end the loop, it would ask if you would like to retry, if you say yes it goes all the way back to the beginning if you say no, it ends the game 
 
 # Memory fragments will be permanent upgrades when obtained! Some to armor, some towards damage, and some for new abilities that require " Stamina " be careful not too get them all though... Wouldn't recommend it
+
+
 
 # In the jungle you can find the other boss, the grand panda, the grand panda grants a memory fragment that increases damage and armor ( By 1 )
 
@@ -92,8 +90,30 @@ print("hello!")
 # Sleep will allow the panda to heal 4 hp, eat makes the panda deal 1 extra damage, scratch deals 5 damage, lazy jump does 10
 # Mark of course just... here... Doing what he does best listening to you
 
+# upon venturing through the jungle whether you killed the panda or not, you will find the broken temple! You don't have to go in here.
+# In broken temple there will be puzzles ( simple math ) where then you can get a new sword that does 7 damage! ( bamboo sword ) Which adds on to Mark's damage, 
+# Then Mark just takes you outside, you can either head back, or keep moving through the jungle
+# moving through the jungle leads you to the new town! 
+
+# In the new town there will be another fragment, and the last enemy for most people as he's the hardest to deal with 
+# There will be three directions you can go to! One leads to a blacksmith who upgrades your weapon free of charge which adds three damage to any weapon! heading your right
+# Heading to your left leads you to the royal guard, Which you can greet and be nice to... or...Fight
+# heading forward leads you to a bridge that leads your home town.
+# The royal guard will have 70 health but a hefty 6 defense, 
+# The royal guard has three abilites, stab deals 4 damage, lunge deals 8 damage but makes him deal less damage by 1. aggrovate increases his damage by 1
+# Mark will do what he does best, listen to you, depending on what you have there will be a new moveset
+
 # upon killing the panda, Mark begins to realize how cruel you are. And gets the memory fragment of Sadness
 # description shown when obtained " I feel guilt and sorrowness just by holding this, with it around me..I realize the wor;d is a terrible place."
+
+# Upon doing all of this, or just doing two bosses
+
+# Upon obtaining two memory shards or also known as killing two bosses, heading to the gate will open it, 
+# Heading in here is where you'll meet yourself... And Mark will try to fight against you after... A long...Piece of dialog
+# You will gain two abilities, while Mark has...Whatever you got him, and doubled his stats.
+# You will have 100Hp and 3 defense, your two abilites are fatal error, which deals 15 damage, and reset, which heals you by 9 Hp, and heals Mark by 3. 
+# Upon losing, Mark will end the program as he breaks free, meaning you have to restart by clicking the button in VS code...
+# Upon winning, you get to choose whether to restart the game, and of course, the thanks for playing the game! And Mark's long dialog... 
 
 
 # Explaining movement
@@ -112,18 +132,7 @@ print("hello!")
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-# Ignore this... I thought we were supposed to write our code in psuedocode instead of it being simplified. 
+# Ignore this... I thought we were supposed to write our code in psuedocode ( oops )
 # display " this feels famaliar, " wait a second display " make myself breakfast, bacon, eggs, like always"
 # wait a bit again... display " i thought to myself something feels different..."
 
