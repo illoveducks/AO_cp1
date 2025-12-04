@@ -14,6 +14,8 @@ Status = { "wolf": "alive",
             "desert golem": 'alive?',
             "program": 'unbroken'}
 
+Marks_weapon = "none"
+
 weapons = {
     "stick": 3,
     "copper sword": 5,
@@ -43,9 +45,6 @@ while True:
     outside = input("yes, no\n").strip()
 
     str(outside)
-    if outside != 'yes' or outside != 'no':
-        print("what...?")
-
 
     if outside == 'yes':
         Marks_location = "outside"
@@ -58,6 +57,10 @@ while True:
         time.sleep(1)
         print("no...weird question, oh well, see you around!")
         time.sleep(1)
+        break
+    elif outside != 'yes' and outside != 'no':
+        print("what...?")
+    
     elif outside == 'no':
         freedom = input("Are you sure...You want to end it so early...?\n")
         if freedom == 'yes': 
@@ -73,10 +76,11 @@ while True:
             print("okay, thanks for telling me, hey, I got a question, do you ever feel like a puppet on strings?")
             time.sleep(1)
             print("no...weird question, oh well, see you around!")
+            time.sleep(1)
             break
 while True:
-    go = input("where should I go? \n left leads me to the forest, \n right leads me to the desert, \n forward leads me to the new town, \n or back home... ( type back by the way ) ").strip()
-
+    go = input("where should I go? \n left leads me to the forest, \n right leads me to the desert, \n forward leads me to the new town, \n or back home... ( type back to head home )\n ").strip()
+    
     str(go)
 
     if go == 'left':
@@ -93,10 +97,36 @@ while True:
         break
 
 if Marks_location == 'forest':
+    print("there are sticks everywhere...")
     while True:
-        print("there are sticks everywhere...")
-        print("why did we go here again...? What's your goal...? ")
-        go = ("pick up a stick, forward, left, right, ")
+        print("why did we go here...? What's your goal...? ")
+        time.sleep(1)
+        go = input("pick up (stick) forward, left, right, ")
+
+        if go == 'forward':
+            print("And so I set forth, I walked...And walked...Soon I encountered a sleeping wolf, it had looked famaliar")
+            time.sleep(0.5)
+            print("It's intimidating...but resting")
+            while True:
+                go = input('wake it up, head to the gate, right, back \n ')
+
+        if go == "pick up":
+            print("okay...?") 
+            Marks_stats["damage"] += weapons["stick"]
+            while True:
+                print("what now? ")
+                go = input('forward, left, right, \n ' )
+                if go == 'forward':
+                    print("And so I set forth, I walked...And walked...Soon I encountered a sleeping wolf, it had looked famaliar")
+                    time.sleep(0.5)
+                    print("It's intimidating...but resting")
+                    go = input('wake it up, head to the gate, right, back \n ')
+
+
+
+        
+
+        
 
 
 
