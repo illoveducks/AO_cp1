@@ -25,6 +25,7 @@ armor = {'sandstone': 2,
          'iron': 4,
          'the royal shield': 5}
 
+
 Marks_location = "home"
 
 print("I woke up, I wonder, I wonder what's going on in town today. I need to get ready")
