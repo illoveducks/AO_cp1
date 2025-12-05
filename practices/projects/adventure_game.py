@@ -4,7 +4,8 @@ import random
 
 import time
 
-Marks_stats = { "damage": 5,
+Marks_stats = { "min Hp": 20, # How much you heal after the end of a fight. 
+                "damage": 5,
                "health": 20,
                "defense": 0, }
 
@@ -26,6 +27,35 @@ weapons = {
 armor = {'sandstone': 2,
          'iron': 4,
          'the royal shield': 5}
+
+
+wolf = {'HP': 50,
+        'scratch': 5,
+        'pounce': 3,
+        'howl': 0}
+
+desert_golem = {'HP': 100,
+                'wind up': 0,
+                'hefty wind up': 0,
+                'swing': 8,
+                'holy gem': 3,
+                 'defense': 2}
+
+panda = { 'HP': 75,
+        'scratch': 5,
+         'lazy jump': 10,
+         'sleep ': 3,
+         'eat': 1 
+         }
+
+Royal_guard = {'HP': 50,
+               'defense': 4,
+               'swing': 6,
+                'aggravate': 2 }
+
+
+
+
 
 
 Marks_location = "home"
@@ -113,6 +143,7 @@ if Marks_location == 'forest':
         if go == "pick up":
             print("okay...?") 
             Marks_stats["damage"] += weapons["stick"]
+            Marks_weapon = 'stick'
             while True:
                 print("what now? ")
                 go = input('forward, left, right, \n ' )
@@ -122,6 +153,62 @@ if Marks_location == 'forest':
                     print("It's intimidating...but resting")
                     go = input('wake it up, head to the gate, right, back \n ')
 
+                    if go == 'wake it up':
+                        break
+    
+
+if go == 'wake it up':
+    print("i screamed at the wolf, it let out a howl as if it were calling something, there is no turning back, no longer...")
+    while True:
+        print("looks...worried...?")
+
+        print("my health ", Marks_stats["health"])
+        print("wolf's health", wolf["HP"])
+        
+        print("it's going for an attack")
+
+        if Marks_stats['health'] <= 1:
+            print("I can't push myself any further...I'm sorry friend...")
+            time.sleep(1)
+            print("there's always a next time...right...? ")
+            retry = input('yes, no')
+
+
+        if attack == 'block':
+            print(" I heard it dent my stick...Why is this stick so durable? i felt...better...")
+            Marks_stats["health"] += 3
+
+        elif attack != 'block':
+            Marks_stats["health"] -= wolf["scratch"]
+
+        print(' ow... i can block that next time...')
+        if Marks_weapon == 'stick':
+            attack = input("block, swing").lower().strip()
+            if attack == 'block':
+                print('uh oh...')
+                time.sleep(0.5)
+                print("the wolf had a great leap, and pounced on me, maybe I can't block that...")
+                Marks_stats["health"] -= wolf['pounce']
+                time.sleep(0.6)
+                print("Didn't hurt...much...?")
+                time.sleep(0.3)
+                print('the creature let out a frantic howl, but nothing came...')
+                attack = input("maybe I should block...? block, attack")
+                continue
+
+
+            elif attack == 'swing':
+                print("I landed a hit! But...It leaped at me right afterwards... ")
+                Marks_stats["health"] -= wolf["pounce"]
+                time.sleep(0.3)
+                print("it let out a frantic howl...But nothing came...")
+                attack = input("maybe I should block...? block attack ")
+
+
+            
+
+        elif Marks_weapon == 'none':
+            attack = input('punch', 'block')
 
 
         
