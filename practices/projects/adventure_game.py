@@ -171,7 +171,14 @@ if go == 'wake it up':
             print("I can't push myself any further...I'm sorry friend...")
             time.sleep(1)
             print("there's always a next time...right...? ")
-            retry = input('yes, no')
+            time.sleep(1)
+            print("right...?")
+            break
+        if wolf["HP"] <= 1:
+            Status["wolf"] = 'dead'
+            print("I did it! I did... It...? I don't feel good...I feel a recollection...Grief...")
+            time.sleep(1)
+            print("The memories...Ugh...I have a feeling to head to the gate. ")
 
 
         if attack == 'block':
@@ -202,7 +209,8 @@ if go == 'wake it up':
                 Marks_stats["health"] -= wolf["pounce"]
                 time.sleep(0.3)
                 print("it let out a frantic howl...But nothing came...")
-                attack = input("maybe I should block...? block attack ")
+                attack = input("maybe I should block...? block, attack ")
+                continue
 
 
             
