@@ -4,6 +4,10 @@ import random
 
 import time
 
+
+attempts = 0
+
+
 Marks_stats = { "min Hp": 20, # How much you heal after the end of a fight. 
                 "damage": 5,
                "health": 20,
@@ -109,6 +113,8 @@ while True:
             time.sleep(1)
             break
 while True:
+    if attempts != 0:
+        break
     go = input("where should I go? \n left leads me to the forest, \n right leads me to the desert, \n forward leads me to the new town, \n or back home... ( type back to head home )\n ").strip()
     
     str(go)
@@ -129,24 +135,145 @@ while True:
 if Marks_location == 'forest':
     print("there are sticks everywhere...")
     while True:
+        if Status["wolf"] == 'dead':
+            break
         print("why did we go here...? What's your goal...? ")
         time.sleep(1)
         go = input("pick up (stick) forward, left, ")
+
+
+
+        if go == 'left':
+            print("and so i Ventured once more, listening to those voices that carry me, ")
+            time.sleep(1)
+            print("I soon found a viny place, I think, I'm in the jungle")
+            Marks_location = 'jungle'
+            break 
+
+        elif go == "pick up":
+            print("okay...?") 
+            Marks_stats["damage"] += weapons["stick"]
+            Marks_weapon = 'stick'
+
+            while attempts == 0:
+                if Status['wolf'] == 'dead':
+                    break
+                print("what now? ")
+                go = input('forward, left, right, \n ' )
+
+                if go != 'forward' and go != ' left ' and go != 'right':
+                    print('huh...?')
+                    continue
+
+                if go == 'forward':
+                    print("And so I set forth, I walked...And walked...Soon I encountered a sleeping wolf, it had looked famaliar")
+                    time.sleep(0.5)
+                    print("It's intimidating...but resting")
+                    time.sleep(0.4)
+                    go = input('wake it up, head to the gate, right, back \n ')   
+                    
+                    if go == 'wake it up':
+                        print("i screamed at the wolf, it let out a howl as if it were calling something, there is no turning back, no longer...")
+                        time.sleep(0.5)
+                        while True:
+                            print("looks...worried...?")
+
+                            print("my health ", Marks_stats["health"])
+                            print("wolf's health", wolf["HP"])
+        
+                            print("it's going for an attack")
+
+                            if Marks_stats['health'] < 1:
+                                print("I can't push myself any further...I'm sorry friend...")
+                                time.sleep(1)
+                                print("there's always a next time...right...? ")
+                                time.sleep(1)
+                                print("right...?")
+                                break
+                            if wolf["HP"] < 1:
+                                Status["wolf"] = 'dead'
+                                print("I did it! I did... It...? I don't feel good...I feel a recollection...Grief...")
+                                time.sleep(1)
+                                print("The memories...Ugh...I have a feeling to head to the gate. ")
+                                Marks_stats["damage"] += 1
+                                break
+
+                            attack = input("block, swing, maybe I should block \n ").lower().strip()
+
+                            str(attack)
+                            if attack != 'block' and attack != 'swing':
+                                print('now is not the time to mess around...')
+
+                            if attack == 'block':
+                                print(" I heard it dent my stick...Why is this stick so durable? i felt...better...")
+                                Marks_stats["health"] += 3
+                                print("my health ", Marks_stats["health"])
+                                print("wolf's health", wolf["HP"])
+
+                            elif attack != 'block':
+                                Marks_stats["health"] -= wolf["scratch"]
+                                print("my health ", Marks_stats["health"])
+                                print("wolf's health", wolf["HP"])
+                            if attack == 'swing':
+                                print("I got it! uh oh...")
+                                time.sleep(1)
+                                print("ouch...")
+                                Marks_stats["health"] -= wolf["pounce"] 
+                                wolf["HP"] -= Marks_stats["damage"]
+                                print("my health ", Marks_stats["health"])
+                                print("wolf's health", wolf["HP"])
+                            if Marks_weapon == 'stick':
+                                attack = input("block, swing \n ").lower().strip()
+                                if attack == 'block':
+                                    print('uh oh...')
+                                    time.sleep(0.5)
+                                    print("the wolf had a great leap, and pounced on me, maybe I can't block that...")
+                                    Marks_stats["health"] -= wolf['pounce']
+                                    print("my health ", Marks_stats["health"])
+                                    print("wolf's health", wolf["HP"])
+                                    time.sleep(0.6)
+                                    print("Didn't hurt...much...?")
+                                    time.sleep(0.7)
+                                    print('the creature let out a frantic howl, but nothing came...')
+                                    continue
+
+
+                                elif attack == 'swing':
+                                    print("I landed a hit! But...It leaped at me right afterwards... ")
+                                    wolf["HP"] -= Marks_stats["damage"]
+                                    Marks_stats["health"] -= wolf["pounce"]
+                                    time.sleep(0.7)
+                                    print("it let out a frantic howl...But nothing came...")
+                                    continue
+
+
+
+
 
         if go == 'forward':
             print("And so I set forth, I walked...And walked...Soon I encountered a sleeping wolf, it had looked famaliar")
             time.sleep(0.5)
             print("It's intimidating...but resting")
             while True:
-                go = input('wake it up, head to the gate, right, back \n ')
-
+                if Status["wolf"] == 'dead':
+                    break
+                if attempts == 0:
+                    go = input('wake it up, head to the gate, right, back \n ')
+                if attempts != 0:
+                    break
                 if go == 'wake it up':
                     print("I punched the sleeping creature, it woke up with a fierce howl, but it looked like it was calling to something")
                     time.sleep(0.5)
                     while True:
+                        if Status["wolf"] == 'dead':
+                            break
+
                         print("my health ", Marks_stats["health"])
                         print("wolf's health", wolf["HP"])
                         print("Maybe I should block")
+
+                        attack = input('punch, block \n ')
+                        str(attack)
 
                         if Marks_stats['health'] <= 1:
                             print("I can't push myself any further...I'm sorry friend...")
@@ -154,16 +281,20 @@ if Marks_location == 'forest':
                             print("there's always a next time...right...? ")
                             time.sleep(1)
                             print("right...?")
+                            attempts +=1
                             break
                         if wolf["HP"] <= 1:
                             Status["wolf"] = 'dead'
                             print("I did it! I did... It...? I don't feel good...I feel a recollection...Grief...")
                             time.sleep(1)
-                            print("The memories...Ugh...I have a feeling to head to the gate. ")
+                            print("The memories...Ugh...I have a feeling to head to the gate. ")     
+                            print('we have to go... somewhere')
                             Marks_stats["damage"] += 1
                             Marks_stats["health"] += Marks_stats["min Hp"]
-                            attack = input('punch, block \n ')
-                            str(attack)
+                            attempts += 1
+                            break
+        
+
 
                         if attack != 'block' and attack != 'punch':
                             print('now is not the time to be messing around...')
@@ -180,7 +311,11 @@ if Marks_location == 'forest':
                             print("my health ", Marks_stats["health"])
                             print("wolf's health", wolf["HP"])
                         
-                        attack = input("what now? punch, block")
+                        attack = input("what now? punch, block \n ")
+
+                        if attack != 'block' and attack != 'punch':
+                            print('now is not the time to be messing around...')
+                            continue
 
                         if attack == 'punch':
                             print("I hit it but it immediately leaped towards me")
@@ -205,123 +340,44 @@ if Marks_location == 'forest':
 
 
 
+if Marks_weapon == "none" or Marks_weapon == "stick" and Status["wolf"] == 'dead':
+    while True: 
 
-        elif go == 'left':
-            print("and so i Ventured once more, listening to those voices that carry me, ")
+        go = input("what now...? After this...Laying beast... left, forward, gate")
+        if go == 'left':
+            print(" So I went to my left, and found a viny place, I think, I'm in the jungle")
+            Marks_location = ' jungle'
+        while Marks_location == 'jungle':
+            print("we're here. ")
+            print("this place is beautiful...")
             time.sleep(1)
-            print("I soon found a viny place, I think, I'm in the jungle")
-            Marks_location = 'jungle'
+            print('where should we go...? Although...I do not want to venture to far in here.')
+            go = input('left, forward \n ')
+    
+            if go != 'left' or go != 'right':
+                print("what...?")
+                continue
+
+            if go == 'forward':
+                print("I went more forward, there seemed to have been a trail, I looked up, it was a temple.")
+                go == input("go inside, keep going, ")
+        
+
+            elif go == 'left': 
+                print("I saw a trail of munched up bamboo...I looked up, and I saw an adorable panda.")
+                go == input('fight it, gift ( give it a piece of bamboo ), go past it \n')
+                break
 
 
-        elif go == "pick up":
-            print("okay...?") 
-            Marks_stats["damage"] += weapons["stick"]
-            Marks_weapon = 'stick'
-            break
-while True:
-    print("what now? ")
-    go = input('forward, left, right, \n ' )
 
-    if go != 'forward' and go != ' left ' and go != 'right':
-        print('huh...?')
-        continue
 
-    if go == 'forward':
-        print("And so I set forth, I walked...And walked...Soon I encountered a sleeping wolf, it had looked famaliar")
-        time.sleep(0.5)
-        print("It's intimidating...but resting")
-        time.sleep(0.4)
-        go = input('wake it up, head to the gate, right, back \n ')   
-        break
+
 
 
 
 
  
 
-if go == 'wake it up':
-    print("i screamed at the wolf, it let out a howl as if it were calling something, there is no turning back, no longer...")
-    time.sleep(0.5)
-    while True:
-        print("looks...worried...?")
-
-        print("my health ", Marks_stats["health"])
-        print("wolf's health", wolf["HP"])
-        
-        print("it's going for an attack")
-
-        if Marks_stats['health'] <= 1:
-            print("I can't push myself any further...I'm sorry friend...")
-            time.sleep(1)
-            print("there's always a next time...right...? ")
-            time.sleep(1)
-            print("right...?")
-            break
-        if wolf["HP"] <= 1:
-            Status["wolf"] = 'dead'
-            print("I did it! I did... It...? I don't feel good...I feel a recollection...Grief...")
-            time.sleep(1)
-            print("The memories...Ugh...I have a feeling to head to the gate. ")
-            Marks_stats["damage"] += 1
-
-
-        attack = input("block, swing, maybe I should block \n ").lower().strip()
-
-        str(attack)
-        if attack != 'block' and attack != 'swing':
-            print('now is not the time to mess around...')
-
-        if attack == 'block':
-            print(" I heard it dent my stick...Why is this stick so durable? i felt...better...")
-            Marks_stats["health"] += 3
-            print("my health ", Marks_stats["health"])
-            print("wolf's health", wolf["HP"])
-
-        elif attack != 'block':
-            Marks_stats["health"] -= wolf["scratch"]
-            print("my health ", Marks_stats["health"])
-            print("wolf's health", wolf["HP"])
-        if attack == 'swing':
-            print("I got it! uh oh...")
-            time.sleep(1)
-            print("ouch...")
-            Marks_stats["health"] -= wolf["pounce"] 
-            wolf["HP"] -= Marks_stats["damage"]
-            print(' ow... i can block that next time...')
-            print("my health ", Marks_stats["health"])
-            print("wolf's health", wolf["HP"])
-        if Marks_weapon == 'stick':
-            attack = input("block, swing \n ").lower().strip()
-            if attack == 'block':
-                print('uh oh...')
-                time.sleep(0.5)
-                print("the wolf had a great leap, and pounced on me, maybe I can't block that...")
-                Marks_stats["health"] -= wolf['pounce']
-                print("my health ", Marks_stats["health"])
-                print("wolf's health", wolf["HP"])
-                time.sleep(0.6)
-                print("Didn't hurt...much...?")
-                time.sleep(0.7)
-                print('the creature let out a frantic howl, but nothing came...')
-                continue
-
-
-            elif attack == 'swing':
-                print("I landed a hit! But...It leaped at me right afterwards... ")
-                wolf["HP"] -= Marks_stats["damage"]
-                Marks_stats["health"] -= wolf["pounce"]
-                time.sleep(0.7)
-                print("it let out a frantic howl...But nothing came...")
-                continue
-
-
-            
-
-            
-
-        
-
-        
 
 
 
