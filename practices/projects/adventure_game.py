@@ -1,8 +1,10 @@
 # AO 1st Adventure game! 
 
-import random 
+import random as r
 
 import time
+
+
 
 
 attempts = 0
@@ -11,7 +13,8 @@ attempts = 0
 Marks_stats = { "min Hp": 20, # How much you heal after the end of a fight. 
                 "damage": 5,
                "health": 20,
-               "defense": 0, }
+               "defense": 0,
+                "max HP": 23 }
 
 Status = { "wolf": "alive",
             "royal guard": 'alive',
@@ -33,6 +36,10 @@ armor = {'sandstone': 2,
          'the royal shield': 5}
 
 
+Key_shard = 'broken'
+Key_shard2 = 'shattered'
+
+
 wolf = {'HP': 50,
         'scratch': 5,
         'pounce': 3,
@@ -41,19 +48,20 @@ wolf = {'HP': 50,
 desert_golem = {'HP': 100,
                 'wind up': 0,
                 'hefty wind up': 0,
-                'swing': 8,
-                'holy gem': 3,
+                'swing': 11,
+                'holy gem': 4,
+                'solidify': 1,
                  'defense': 2}
 
 panda = { 'HP': 75,
         'scratch': 5,
          'lazy jump': 10,
          'sleep ': 3,
-         'eat': 1 
-         }
+         'eat': 1,
+         'defense': 1}
 
-Royal_guard = {'HP': 50,
-               'defense': 4,
+Royal_guard = {'HP': 60,
+               'defense': 6,
                'swing': 6,
                 'aggravate': 2 }
 
@@ -176,6 +184,9 @@ if Marks_location == 'forest':
                         print("i screamed at the wolf, it let out a howl as if it were calling something, there is no turning back, no longer...")
                         time.sleep(0.5)
                         while True:
+                            if Status['wolf'] == 'dead':
+                                print("Why are we here again...? To mourn over it...?")
+                                break
                             print("looks...worried...?")
 
                             print("my health ", Marks_stats["health"])
@@ -196,6 +207,10 @@ if Marks_location == 'forest':
                                 time.sleep(1)
                                 print("The memories...Ugh...I have a feeling to head to the gate. ")
                                 Marks_stats["damage"] += 1
+                                if Key_shard == 'fixed':
+                                    Key_shard2 = 'unshattered'
+                                elif Key_shard == 'broken':
+                                    Key_shard = 'fixed'
                                 break
 
                             attack = input("block, swing, maybe I should block \n ").lower().strip()
@@ -292,13 +307,17 @@ if Marks_location == 'forest':
                             Marks_stats["damage"] += 1
                             Marks_stats["health"] += Marks_stats["min Hp"]
                             attempts += 1
+                            if Key_shard == 'fixed':
+                                Key_shard2 = 'unshattered'
+                            elif Key_shard == 'broken':
+                                Key_shard = 'fixed'
                             break
         
 
 
                         if attack != 'block' and attack != 'punch':
                             print('now is not the time to be messing around...')
-                            continue
+                            attack = input("punch, block \n ")
                         if attack == 'punch':
                             print("I hit the wolf, it scratched me right back, it hurt.")
                             Marks_stats["health"] -= wolf["scratch"]
@@ -307,7 +326,12 @@ if Marks_location == 'forest':
                             print("wolf's health", wolf["HP"])
                         elif attack == 'block':
                             print("My arms, they felt like they were made of steel, I feel...Better")
+                        if Marks_stats["health"] >= Marks_stats["max HP"]:
+                            Marks_stats["health"] = Marks_stats["max HP"]
+
+                        elif Marks_stats["health"] < Marks_stats["max HP"]:
                             Marks_stats["health"] += 3
+
                             print("my health ", Marks_stats["health"])
                             print("wolf's health", wolf["HP"])
                         
@@ -315,6 +339,7 @@ if Marks_location == 'forest':
 
                         if attack != 'block' and attack != 'punch':
                             print('now is not the time to be messing around...')
+                            attack = input("punch, block \n ")
                             continue
 
                         if attack == 'punch':
@@ -340,10 +365,9 @@ if Marks_location == 'forest':
 
 
 
-if Marks_weapon == "none" or Marks_weapon == "stick" or Marks_weapon == "copper sword" or Marks_weapon == "bamboo" and Status["wolf"] == 'dead':
+if Marks_weapon == "none" or Marks_weapon == "stick" or Marks_weapon == "copper sword" or Marks_weapon == "bamboo":
     while True: 
-
-        go = input("what now...? After this...Laying beast... left, forward, gate")
+        go = input("what now...? left, forward")
         if go == 'left':
             print(" So I went to my left, and found a viny place, I think, I'm in the jungle")
             Marks_location = ' jungle'
@@ -355,7 +379,7 @@ if Marks_weapon == "none" or Marks_weapon == "stick" or Marks_weapon == "copper 
             print('where should we go...? Although...I do not want to venture to far in here.')
             go = input('left, forward \n ')
     
-            if go != 'left' or go != 'right':
+            if go != 'left' or go != 'forward':
                 print("what...?")
                 continue
             
@@ -376,7 +400,52 @@ if Marks_weapon == "none" or Marks_weapon == "stick" or Marks_weapon == "copper 
             elif go == 'left': 
                 print("I saw a trail of munched up bamboo...I looked up, and I saw an adorable panda.")
                 go == input('fight it, gift ( give it a piece of bamboo ), go past it \n')
-                break
+                if go == 'fight it':
+                    print("why...it's so...Adorable...Fine.")
+                    while True:
+                        print(panda["HP"])
+                        print(Marks_stats["health"])
+
+                        if panda["HP"] < 1:
+                            print("Darn...It was so cute...it didn't deserver this ending...")
+                            print("We have to go somewhere else now...")
+                            Marks_stats["defense"] += 1
+                            Marks_stats["damage"] += 2
+                            go == ('forward, right')
+                            break
+                        elif Marks_stats["health"] < 1:
+                            print("That was a strong panda...Like most bears...")
+                            time.sleep(1)
+                            print("I'm kind of glad I didn't hurt it as much as I...Wanted to...haha...See you...Again...")
+                            Marks_location == 'none'
+                        
+                        if Marks_weapon == 'stick' or Marks_weapon == 'copper sword' or Marks_weapon == 'bamboo sword':
+                            attack = input("swing, block")
+
+                            if attack != 'block' or attack != 'swing':
+                                print("Really? You made the panda fall asleep...")
+                                panda["HP"] += panda["sleep "]
+                                continue
+
+                            if attack == 'swing':
+                                print("got it, it's scratch was weak, i can defenitely block that, but, I don't know if it'll make me feel better ")
+                                Marks_stats["health"] -= panda["scratch"]
+                                panda["HP"] -= Marks_stats["damage"]
+                            elif attack == b
+                            
+
+                                
+
+
+
+
+
+
+
+
+
+
+
 
 while Marks_location == 'The Broken Temple':
     if Marks_location != 'The Broken Temple':
@@ -446,6 +515,19 @@ while Marks_location == 'The Broken Temple':
                                 
 
 
+while Marks_location == 'outside of temple':
+    print("Let's go somewhere else, ")
+    go = input("forward, left")
+
+
+
+
+
+
+
+
+if Marks_location == 'none':
+    print("awww... You died :( just go back and re run the terminal, by pressing the play button again good luck next attempt! ")
                 
             
 
