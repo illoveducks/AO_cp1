@@ -57,8 +57,7 @@ panda = { 'HP': 75,
         'scratch': 5,
          'lazy jump': 10,
          'sleep ': 3,
-         'eat': 1,
-         'defense': 1}
+         'eat': 1}
 
 Royal_guard = {'HP': 60,
                'defense': 6,
@@ -142,7 +141,7 @@ while True:
 
 if Marks_location == 'forest':
     print("there are sticks everywhere...")
-    while True:
+    while Marks_location == 'forest':
         if Status["wolf"] == 'dead':
             break
         print("why did we go here...? What's your goal...? ")
@@ -178,7 +177,11 @@ if Marks_location == 'forest':
                     time.sleep(0.5)
                     print("It's intimidating...but resting")
                     time.sleep(0.4)
-                    go = input('wake it up, head to the gate, right, back \n ')   
+                    go = input('wake it up, head to the gate, left, back \n ')   
+                    if go == 'left':
+                        print("So I ventured, then I got to a viny place, I'm in the jungle. I think?")
+                        Marks_location = 'jungle' 
+                        break
                     
                     if go == 'wake it up':
                         print("i screamed at the wolf, it let out a howl as if it were calling something, there is no turning back, no longer...")
@@ -384,10 +387,11 @@ if Marks_weapon == "none" or Marks_weapon == "stick" or Marks_weapon == "copper 
                 continue
             
             if go == 'forward' and Marks_weapon == "bamboo sword": 
-                print("I've already been to the temple, no point in going in, are we heading to the new town?")
+                print("I've already been to the temple, no point in going in if that's why we're going here, are we heading to the new town?")
                 time.sleep(1)
-                print("and so I kept walking here, in this new town. ")
-
+                print("and so I kept walking forward, and i got here in this new town. ")
+                Marks_location = 'new town'
+                break
 
             if go == 'forward':
                 print("I went more forward, there seemed to have been a trail, I looked up, it was a temple.")
@@ -402,12 +406,16 @@ if Marks_weapon == "none" or Marks_weapon == "stick" or Marks_weapon == "copper 
                 go == input('fight it, gift ( give it a piece of bamboo ), go past it \n')
                 if go == 'fight it':
                     print("why...it's so...Adorable...Fine.")
-                    while True:
+                    Marks_location = 'panda fight'
+                    while Marks_location == 'panda fight':
+                        if Status["panda"] == 'dead':
+                            break
                         print(panda["HP"])
                         print(Marks_stats["health"])
 
                         if panda["HP"] < 1:
-                            print("Darn...It was so cute...it didn't deserver this ending...")
+                            Status["panda"] = 'dead'
+                            print("Darn...It was so cute...it didn't deserve this ending...")
                             print("We have to go somewhere else now...")
                             Marks_stats["defense"] += 1
                             Marks_stats["damage"] += 2
@@ -425,26 +433,122 @@ if Marks_weapon == "none" or Marks_weapon == "stick" or Marks_weapon == "copper 
                             if attack != 'block' or attack != 'swing':
                                 print("Really? You made the panda fall asleep...")
                                 panda["HP"] += panda["sleep "]
+                                print(panda["HP"])
+                                print(Marks_stats["health"])
                                 continue
 
-                            if attack == 'swing':
+                            elif attack == 'swing':
                                 print("got it, it's scratch was weak, i can defenitely block that, but, I don't know if it'll make me feel better ")
                                 Marks_stats["health"] -= panda["scratch"]
                                 panda["HP"] -= Marks_stats["damage"]
-                            elif attack == b
+                                print(panda["HP"])
+                                print(Marks_stats["health"])
+                            elif attack == 'block':
+                                print("I didn't even...Feel it...? ")
+                                Marks_stats["health"] += 1 
+                                print(Marks_stats["health"])
+                            lazy = r.randint(1, 10)
+                            if lazy == 5:
+                                print("Ow...Heavy...")
+                                Marks_stats['health'] -= panda["lazy jump"]
+                                print(panda["HP"])
+                                print(Marks_stats["health"])
+                            elif lazy != 5:
+                                print("pfft, look at it...hehe..")
                             
+                            attack = input("swing, block")
 
-                                
+                            if attack != 'block' or attack != 'swing':
+                                print("Really? You made the panda fall asleep...")
+                                panda["HP"] += panda["sleep "]
+                                print(panda["HP"])
+                                print(Marks_stats["health"])
+                                continue
+                            if attack == 'swing':
+                                panda["HP"] -= Marks_stats["damage"]
+                                print("it's...Not doing anything...It just grabbed some bamboo...")
+                                panda["HP"] += panda["eat"]
+                                print(panda["HP"])
+                                print(Marks_stats["health"])
+                                continue
+                            if attack == 'block':
+                                print('it just...fell asleep...')
+                                panda["HP"] += panda["sleep "]
+                                time.sleep(1)
+                                print("man the thing wakes up quick...")
+                                continue
 
+                        if Status["panda"] == 'dead':
+                            break
+                        print(panda["HP"])
+                        print(Marks_stats["health"])
+                        if Marks_weapon == 'none':
+                            attack = input("punch, block")
 
+                        if panda["HP"] < 1:
+                            Status["panda"] = 'dead'
+                            print("Darn...It was so cute...it didn't deserve this ending...")
+                            print("We have to go somewhere else now...")
+                            Marks_stats["defense"] += 1
+                            Marks_stats["damage"] += 2
+                            go == ('forward, right')
+                            break
+                        elif Marks_stats["health"] < 1:
+                            print("That was a strong panda...Like most bears...")
+                            time.sleep(1)
+                            print("I'm kind of glad I didn't hurt it as much as I...Wanted to...haha...See you...Again...")
+                            Marks_location == 'none'
+                        
+                        elif Marks_weapon == 'none':
+                            attack = input("punch, block")
 
+                            if attack != 'block' or attack != 'punch':
+                                print("Really? You made the panda fall asleep...")
+                                panda["HP"] += panda["sleep "]
+                                print(panda["HP"])
+                                print(Marks_stats["health"])
+                                continue
 
+                            elif attack == 'punch':
+                                print("got it, it's scratch was weak, i can defenitely block that, but, I don't know if it'll make me feel better ")
+                                Marks_stats["health"] -= panda["scratch"]
+                                panda["HP"] -= Marks_stats["damage"]
+                                print(panda["HP"])
+                                print(Marks_stats["health"])
+                            elif attack == 'block':
+                                print("I didn't even...Feel it...? ")
+                                Marks_stats["health"] += 1 
+                                print(Marks_stats["health"])
+                            lazy = r.randint(1, 10)
+                            if lazy == 5:
+                                print("Ow...Heavy...")
+                                Marks_stats['health'] -= panda["lazy jump"]
+                                print(panda["HP"])
+                                print(Marks_stats["health"])
+                            elif lazy != 5:
+                                print("pfft, look at it...hehe..")
+                            
+                            attack = input("punch, block")
 
-
-
-
-
-
+                            if attack != 'block' or attack != 'punch':
+                                print("Really? You made the panda fall asleep...")
+                                panda["HP"] += panda["sleep "]
+                                print(panda["HP"])
+                                print(Marks_stats["health"])
+                                continue
+                            if attack == 'punch':
+                                panda["HP"] -= Marks_stats["damage"]
+                                print("it's...Not doing anything...It just grabbed some bamboo...")
+                                panda["HP"] += panda["eat"]
+                                print(panda["HP"])
+                                print(Marks_stats["health"])
+                                continue
+                            if attack == 'block':
+                                print('it just...fell asleep...')
+                                panda["HP"] += panda["sleep "]
+                                time.sleep(1)
+                                print("man the thing wakes up quick...")
+                                continue
 
 
 while Marks_location == 'The Broken Temple':
@@ -518,6 +622,33 @@ while Marks_location == 'The Broken Temple':
 while Marks_location == 'outside of temple':
     print("Let's go somewhere else, ")
     go = input("forward, left")
+
+    if go == 'left':
+        print("that's where the panda is, are you trying to fight it? Aside from that, there's no point. ")
+        go = ('fight it, no \n ')
+
+        if go == 'fight it':
+            print("...fine.")
+            Marks_location = ' panda fight'
+
+        elif go == 'no':
+        
+            print("then let's head forward.")
+            time.sleep(0.5)  
+            print("So I ventured forth, ")
+            time.sleep(1)
+            print("I'm in a new place, the new town")
+            Marks_location = 'new town'
+            break
+
+    if go == 'forward':
+        print("So I ventured forth, ")
+        time.sleep(1)
+        print("I'm in a new place, the new town")
+        Marks_location = 'new town'
+        break
+
+
 
 
 
