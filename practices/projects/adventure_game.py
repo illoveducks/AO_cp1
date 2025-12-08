@@ -23,8 +23,8 @@ Marks_weapon = "none"
 
 weapons = {
     "stick": 3,
-    "copper sword": 5,
-    "the great bamboo sword": 7
+    "copper sword": 7,
+    "the great bamboo sword": 5
 
 }
 
@@ -340,13 +340,14 @@ if Marks_location == 'forest':
 
 
 
-if Marks_weapon == "none" or Marks_weapon == "stick" and Status["wolf"] == 'dead':
+if Marks_weapon == "none" or Marks_weapon == "stick" or Marks_weapon == "copper sword" or Marks_weapon == "bamboo" and Status["wolf"] == 'dead':
     while True: 
 
         go = input("what now...? After this...Laying beast... left, forward, gate")
         if go == 'left':
             print(" So I went to my left, and found a viny place, I think, I'm in the jungle")
             Marks_location = ' jungle'
+            break
         while Marks_location == 'jungle':
             print("we're here. ")
             print("this place is beautiful...")
@@ -357,19 +358,98 @@ if Marks_weapon == "none" or Marks_weapon == "stick" and Status["wolf"] == 'dead
             if go != 'left' or go != 'right':
                 print("what...?")
                 continue
+            
+            if go == 'forward' and Marks_weapon == "bamboo sword": 
+                print("I've already been to the temple, no point in going in, are we heading to the new town?")
+                time.sleep(1)
+                print("and so I kept walking here, in this new town. ")
+
 
             if go == 'forward':
                 print("I went more forward, there seemed to have been a trail, I looked up, it was a temple.")
-                go == input("go inside, keep going, ")
-        
+                go == input("go inside, keep going, \n ").lower().strip()
+
+                if go == 'go inside':
+                    Marks_location == 'The Broken Temple'
+                    break
 
             elif go == 'left': 
                 print("I saw a trail of munched up bamboo...I looked up, and I saw an adorable panda.")
                 go == input('fight it, gift ( give it a piece of bamboo ), go past it \n')
                 break
 
+while Marks_location == 'The Broken Temple':
+    if Marks_location != 'The Broken Temple':
+        break
+    print("there's a sign here... It reads... Solve my four math problems and you'll be rewarded...One mess up, and you'll be brought back to the beginning...")
+    time.sleep(1)
+    print("Rules: typing random shenanigans also sends you back.")
+    time.sleep(0.3)
+    print("should we do it? ")
+    maybe = input('yes, no')
+    if maybe == 'yes':
+        print("alright... First one on the wall...")
+        time.sleep(0.6)
+        while True:
+                print("hmm...What's 6 x 6? ")
+                answer = input(" type a number, type leave, if you wanna...leave \n ")
+                
+                str(answer)
+
+                if answer != '36':
+                    print("wrong...Aw...")
+                    continue
+                elif answer == '36':
+                    print("alright next one...8 x 6")
+                    answer == input("type a number \n ")
+                    if answer != '48':
+                        print("darn...")
+                        continue
+                    elif answer == '48':
+                        print("alright...Next one... 13 x 12 ")
+                        answer == input("type a number \n ")
+                        if answer != '156':
+                            print("darn...")
+                            continue
+                        elif answer == '156':
+                            print("alright... last one...11 x 11")
+                            answer == input("type a number \n")
+                            if answer != '121':
+                                print("darn...")
+                                continue
+                            elif answer == '121':
+                                print("hey...We did it! ")
+                                time.sleep(1)
+                                print("there was a door that opened infront of me, there was a pedestal in that room, with a sword")
+                                print("So I walked there and grabbed it, ")
+                                if Marks_weapon == 'stick':
+                                    print("time to throw this piece of junk... hehe...")
+                                    Marks_stats["damage"] -= weapons["stick"]
+                                    Marks_stats["damage"] += weapons["the great bamboo sword"]
+                                    Marks_weapon = 'bamboo sword'
+                                    print("let's leave")
+                                    Marks_location == 'outside of temple'
+                                    break
+                                elif Marks_weapon == 'none':
+                                    print("A weapon, I'll take it, ")
+                                    Marks_weapon = 'bamboo sword'
+                                    Marks_stats["damage"] += weapons["the great bamboo sword"]
+                                    print("let's leave")
+                                    Marks_location == 'outside of temple'
+                                    break
+                                elif Marks_weapon == "copper sword":
+                                    print("All of that...for nothing...Not worth changing this piece of metal for a plant")
+                                    time.sleep(0.3)
+                                    print("let's leave")
+                                    Marks_location == 'outside of temple'
+                                    break
+                                
 
 
+                
+            
+
+print(Marks_stats)
 
 
 
