@@ -7,12 +7,10 @@ weapon_damage = {"stick":3,
                  "wolf's claw": 7}
 damage = 5
 
-lazy = r.randint(1, 10)
+hi = { 'lazy': r.randint(1, 10) }
 
-print(lazy)
+print(hi['lazy'])
 
 damage += weapon_damage["stick"]
 
 print(damage)
-
-

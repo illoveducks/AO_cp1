@@ -17,7 +17,6 @@ Marks_stats = { "min Hp": 20, # How much you heal after the end of a fight.
                 "max HP": 23 }
 
 Status = { "wolf": "alive",
-            "royal guard": 'alive',
             "panda": ' alive',
             "desert golem": 'alive?',
             "program": 'unbroken'}
@@ -26,14 +25,12 @@ Marks_weapon = "none"
 
 weapons = {
     "stick": 3,
-    "copper sword": 7,
     "the great bamboo sword": 5
 
 }
 
 armor = {'sandstone': 2,
-         'iron': 4,
-         'the royal shield': 5}
+         'iron': 4,}
 
 
 Key_shard = 'broken'
@@ -50,8 +47,9 @@ wolf = {'HP': 50,
 desert_golem = {'HP': 100,
                 'wind up': 0,
                 'hefty wind up': 0,
-                'swing': 11,
-                'holy gem': 4,
+                'swing': 12,
+                'blocked swing': 7,
+                'holy gem': r.randint(3, 5),
                 'solidify': 1,
                  'defense': 2}
 
@@ -61,11 +59,11 @@ panda = { 'HP': 75,
          'sleep ': 3,
          'eat': 1}
 
-Royal_guard = {'HP': 60,
-               'defense': 6,
-               'swing': 6,
-                'aggravate': 2 }
-
+program = {'HP': 50,
+           'defense': 1,
+           'Fatal error': 5,
+           'virus': 12
+           }
 
 
 
@@ -790,35 +788,118 @@ if Marks_location == 'desert':
         go = input("forward, right")
         if go == 'right':
             print("alright, I moved a bit, to stare at the huge monolith thing, it had a gem inside of it, I got closer...And closer... I saw the glowing gem...")
-            go = input("go past it, steal it")
+            go = input("go past it, ")
+            
+            if go != 'go past it':
+                print("...")
+                continue
             if go == 'go past it':
                 print("can't...Resist the temptation... I reached my hand out, only for the thing to stand...It was alive...")
                 time.sleep(0.5)
                 print("it looked at me with its glowing eyes, and I knew, it wanted to fight...")
                 while True:
 
-                    print(desert_golem["HP"])
-                    print(Marks_stats['health'])
+                    if Marks_weapon ==  "bamboo sword" or Marks_weapon == "stick":
+                        print("I raised my weapon towards it, ")
+                        while True:
 
-                    if Marks_stats["health"] < 1:
-                        print("My greed is what go to me...")
-                        Marks_location = 'unknown'
-                        break
-                    if desert_golem["HP"] < 1:
-                        print("I saw as bits of his body, fell part, by part, the tumbling sand, the crumbling sandstone, and its two pale eyes slowly go dark... t's body turned into a pile of sand, but the gem...So I took it")
-                        gem = 'obtained'
-                        Marks_stats["health"] += Marks_stats["min Hp"]
-                        Marks_stats["defense"]+= 1
-                        Marks_stats["max HP"] += 7
-                    
+                            print(desert_golem["HP"])
+                            print(Marks_stats['health'])
+
+                            if Marks_stats["health"] < 1:
+                                print("My greed is what go to me...")
+                                Marks_location = 'none'
+                                break
+
+                            if desert_golem["HP"] < 1:
+                                print("I saw as bits of his body, fell part, by part, the tumbling sand, the crumbling sandstone, and its two pale eyes slowly go dark... its body turned into a pile of sand, but the gem...So I took it")
+                                gem = 'obtained'
+                                Marks_stats["health"] += Marks_stats["min Hp"]
+                                Marks_stats["defense"]+= 1
+                                Marks_stats["max HP"] += 7
+                                print("It looks serious")
+
+
+                    if Marks_weapon ==  "none":
+                        print("I was timid compared to that thing")
+                        while True:
+
+                            print('golem:', desert_golem["HP"])
+                            print('my health', Marks_stats['health'])
+
+                            if Marks_stats["health"] < 1:
+                                print("My greed is what go to me...")
+                                Marks_location = 'none'
+                                break
+
+                            if desert_golem["HP"] < 1:
+                                print("I saw as bits of his body, fell part, by part, the tumbling sand, the crumbling sandstone, and its two pale eyes slowly go dark... its body turned into a pile of sand, but the gem...So I took it")
+                                gem = 'obtained'
+                                Marks_stats["health"] += Marks_stats["min Hp"]
+                                Marks_stats["defense"]+= 1
+                                Marks_stats["max HP"] += 7
+                                print("It looks serious")
+
+                            print("the golem raised it's fist oh so slightly, it looked like it was going to be ready to attack, not yet.")
+                            time.sleep(1)
+
+                            attack = input("punch, block")
+
+
+
+                            if attack != 'punch' and attack != 'block':
+                                print("you're wasting time...The thing has its fist in the air now. ")
+                                time.sleep(0.4)
+                            elif attack == 'punch':
+                                print("I punched through the sand, it didn't seem to do much...seemed to heal...?")
+                                desert_golem["HP"] -= Marks_stats["damage"]
+                                desert_golem["HP"] += desert_golem["defense"]
+                                print("it's fist is the air now...")
+                            elif attack == 'block':
+                                print("... The golem raised its fist in the air now")
+                                time.sleep(0.1)
+                                print("you wasted time...")
+                            
+                            attack = input("punch, block")
+
+                            if attack != 'punch' and attack != 'block':
+                                print("It didn't even give me time to say anything, I was knocked straight to the floor then it had put its chest outward, the gem glew bright it shun its light upon me, and I had felt better ")
+                                time.sleep(1)
+                                Marks_stats["health"] -= desert_golem["swing"] 
+                                Marks_stats["health"] += desert_golem["holy gem"]
+                                print('golem:', desert_golem["HP"])
+                                print('my health', Marks_stats['health'])
+                            if attack == 'punch':
+                                print("I didn't even get time to react... It immediately hit me towards the ground, I saw a blazing light, a flash, I had felt better")
+                                Marks_stats["health"] -= desert_golem["swing"] 
+                                Marks_stats["health"] += desert_golem["holy gem"]
+                                print('golem:', desert_golem["HP"])
+                                print('my health', Marks_stats['health'])
+                            elif attack == 'block':
+                                print("I saw before my eyes as I raised my arm quickly in the air, I was pushed back a lot...")
+                                Marks_stats["health"] -= desert_golem["blocked swing"]
+                                time.sleep(0.5)
+                                print("I looked up only to be blinded by a gem, after the light had gone away I had felt better")
+                                Marks_stats["health"] += desert_golem["holy gem"]
+                                print('golem:', desert_golem["HP"])
+                                print('my health', Marks_stats['health'])
+
+                            attack = input("punch, block")
+
+
+                            if attack != 'punch' and attack != 'block':
+                                print("The golem looked at me curiously")
+                            if attack == 'punch':
+                                print("I hit the golem, it didn't do much, I watched as sandstone crumbled off of it")
+                                desert_golem["HP"] -= Marks_stats["damage"]
+                            elif attack == 'block':
 
 
 
 
-            elif go == 'steal it':
-                print("okay... I reached out only for the sand to stand tall...I couldn't reach it, I looked up to see its two pale eyes, it wanted to fight.")
 
-        
+                    elif go != 'go past it':
+                        print("...")
 
 
 
