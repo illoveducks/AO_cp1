@@ -39,6 +39,8 @@ armor = {'sandstone': 2,
 Key_shard = 'broken'
 Key_shard2 = 'broken'
 
+gem = 'not obtained'
+
 
 wolf = {'HP': 50,
         'scratch': 5,
@@ -103,7 +105,7 @@ while True:
         print("what...?")
     
     elif outside == 'no':
-        freedom = input("Are you sure...You want to end it so early...?\n")
+        freedom = input("Are you sure...You want to end it so early...? yes, or whatever you want\n")
         if freedom == 'yes': 
             print("freedom...? ")
             Marks_location = 'unknown'
@@ -140,7 +142,15 @@ while True:
     elif go == 'forward': 
         Marks_location = 'new town'
         print("I may as well head where my friend went. to the new town! ")
+        Marks_location = 'new town'
         break
+
+
+Marks_location
+
+
+
+
 
 if Marks_location == 'forest':
     print("there are sticks everywhere...")
@@ -174,7 +184,7 @@ if Marks_location == 'forest':
                     break
                 if Marks_stats["health"] < 1:
                     break
-                if Status['wolf'] == 'dead':
+                if Marks_location != 'forest':
                     break
                 print("what now? ")
                 go = input('forward, left, right, \n ' )
@@ -186,6 +196,18 @@ if Marks_location == 'forest':
                     print("alright, and so I set forth, I went further, and further, till I found a viny place. I was in the Jungle ")
                     Marks_location = 'jungle'
                     break
+
+                elif go == 'forward' and Status["wolf"] == 'dead':
+                    print(" What now...?")
+                    go = input("forward, left")
+                    if go == "forward":
+                        print("So I ventured forth, and walked past the laying corpse. To make it to the desert. ")
+                        Marks_location = 'desert'
+                        break
+                    elif go == " left":
+                        print("And so I left, making it to a viny place, I am in the jungle...I think")
+
+                
                 if go == 'forward':
                     print("And so I set forth, I walked...And walked...Soon I encountered a sleeping wolf, it had looked famaliar")
                     time.sleep(0.5)
@@ -196,6 +218,7 @@ if Marks_location == 'forest':
                         print("So I ventured, then I got to a viny place, I'm in the jungle. I think?")
                         Marks_location = 'jungle' 
                         break
+                
                     elif go == 'gate':
                         if Key_shard != 'fixed' or Key_shard2 != 'fixed':
                             print("this gate is locked, almost as if I'm missing something...Where can I remember... Let's head back ")
@@ -239,7 +262,7 @@ if Marks_location == 'forest':
                                 print("The memories...Ugh...I have a feeling to head to the gate. ")
                                 Marks_stats["damage"] += 1
                                 if Key_shard == 'fixed':
-                                    Key_shard2 = 'unshattered'
+                                    Key_shard2 = 'fixed'
                                 elif Key_shard == 'broken':
                                     Key_shard = 'fixed'
                                 break
@@ -309,8 +332,15 @@ if Marks_location == 'forest':
                 if Status["wolf"] == 'dead':
                     break
                 if attempts == 0:
-                    go = input('wake it up, head to the gate, right, back \n ')
+                    go = input('wake it up, gate, left  \n ')
                 if attempts != 0:
+                    break
+                if go == 'gate':
+                    print("maybe not right now...")
+                    continue
+                if go == 'left':
+                    print("So I turned, and began traveling soon I got to a viny place, I think I'm in the jungle")
+                    Marks_location = 'jungle'
                     break
                 if go == 'wake it up':
                     print("I punched the sleeping creature, it woke up with a fierce howl, but it looked like it was calling to something")
@@ -588,9 +618,9 @@ if Marks_location == 'jungle':
                             Status["panda"] = 'dead'
                             print("Darn...It was so cute...it didn't deserve this ending...")
                             print("We have to go somewhere else now...")
+                            Marks_stats["health"] += Marks_stats["min Hp"]
                             Marks_stats["defense"] += 1
                             Marks_stats["damage"] += 2
-                            go == ('forward, right')
                             break
                         elif Marks_stats["health"] < 1:
                             print("That was a strong panda...Like most bears...")
@@ -600,7 +630,7 @@ if Marks_location == 'jungle':
                             break
                         
                         elif Marks_weapon == 'none':
-                            attack = input("punch, block")
+                            attack = input("punch, block \n ")
 
                             if attack != 'block' and attack != 'punch':
                                 print("Really? You made the panda fall asleep...")
@@ -754,6 +784,41 @@ while Marks_location == 'outside of temple':
 
 
 
+if Marks_location == 'desert':
+    print("this very sandy place...There's not much... I see something tall...")
+    while True:
+        go = input("forward, right")
+        if go == 'right':
+            print("alright, I moved a bit, to stare at the huge monolith thing, it had a gem inside of it, I got closer...And closer... I saw the glowing gem...")
+            go = input("go past it, steal it")
+            if go == 'go past it':
+                print("can't...Resist the temptation... I reached my hand out, only for the thing to stand...It was alive...")
+                time.sleep(0.5)
+                print("it looked at me with its glowing eyes, and I knew, it wanted to fight...")
+                while True:
+
+                    print(desert_golem["HP"])
+                    print(Marks_stats['health'])
+
+                    if Marks_stats["health"] < 1:
+                        print("My greed is what go to me...")
+                        Marks_location = 'unknown'
+                        break
+                    if desert_golem["HP"] < 1:
+                        print("I saw as bits of his body, fell part, by part, the tumbling sand, the crumbling sandstone, and its two pale eyes slowly go dark... t's body turned into a pile of sand, but the gem...So I took it")
+                        gem = 'obtained'
+                        Marks_stats["health"] += Marks_stats["min Hp"]
+                        Marks_stats["defense"]+= 1
+                        Marks_stats["max HP"] += 7
+                    
+
+
+
+
+            elif go == 'steal it':
+                print("okay... I reached out only for the sand to stand tall...I couldn't reach it, I looked up to see its two pale eyes, it wanted to fight.")
+
+        
 
 
 
