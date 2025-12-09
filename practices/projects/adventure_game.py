@@ -106,6 +106,7 @@ while True:
         freedom = input("Are you sure...You want to end it so early...?\n")
         if freedom == 'yes': 
             print("freedom...? ")
+            Marks_location = 'unknown'
             break
         else:
             print("haha you're so funny... let's go outside")
@@ -120,6 +121,8 @@ while True:
             time.sleep(1)
             break
 while True:
+    if Marks_location == 'unknown':
+        break
     if attempts != 0:
         break
     go = input("where should I go? \n left leads me to the forest, \n right leads me to the desert, \n forward leads me to the new town, \n or back home... ( type back to head home )\n ").strip()
@@ -141,7 +144,11 @@ while True:
 
 if Marks_location == 'forest':
     print("there are sticks everywhere...")
-    while Marks_location == 'forest':
+    while True:
+        if Marks_location != 'forest':
+            break
+        if Marks_stats["health"] < 1:
+            break
         if Status["wolf"] == 'dead':
             break
         print("why did we go here...? ")
@@ -163,6 +170,10 @@ if Marks_location == 'forest':
             Marks_weapon = 'stick'
 
             while True:
+                if Marks_location == 'unknown':
+                    break
+                if Marks_stats["health"] < 1:
+                    break
                 if Status['wolf'] == 'dead':
                     break
                 print("what now? ")
@@ -174,6 +185,7 @@ if Marks_location == 'forest':
                 if go == ' left ':
                     print("alright, and so I set forth, I went further, and further, till I found a viny place. I was in the Jungle ")
                     Marks_location = 'jungle'
+                    break
                 if go == 'forward':
                     print("And so I set forth, I walked...And walked...Soon I encountered a sleeping wolf, it had looked famaliar")
                     time.sleep(0.5)
@@ -241,6 +253,9 @@ if Marks_location == 'forest':
                             if attack == 'block':
                                 print(" I heard it dent my stick...Why is this stick so durable? i felt...better...")
                                 Marks_stats["health"] += 3
+                            if Marks_stats["health"] >= Marks_stats["max HP"]:
+                                Marks_stats["health"] = Marks_stats["max HP"]
+
                                 print("my health ", Marks_stats["health"])
                                 print("wolf's health", wolf["HP"])
 
@@ -289,6 +304,8 @@ if Marks_location == 'forest':
             time.sleep(0.5)
             print("It's intimidating...but resting")
             while True:
+                if Marks_location == 'unknown':
+                    break
                 if Status["wolf"] == 'dead':
                     break
                 if attempts == 0:
@@ -381,20 +398,34 @@ if Marks_location == 'forest':
 
 
     while True: 
+        if Marks_location == 'unknown':
+            break
+        if Marks_stats["health"] < 1:
+            break
+        if Marks_location == 'jungle':
+            break
+        if Marks_location == 'desert':
+            break
         go = input("what now...? left, forward")
         if go == 'left':
             print(" So I went to my left, and found a viny place, I think, I'm in the jungle")
             Marks_location = 'jungle'
             break
-    if Marks_location == 'jungle':
+        elif go == "forward":
+            print('so I set forth, and I had reached a sandy place, I am in the desert ')
+            Marks_location = 'desert'
+if Marks_location == 'jungle':
         while True:
+            if Marks_location == 'The Broken Temple':
+                break
             print("we're here. ")
             print("this place is beautiful...")
             time.sleep(1)
             print('where should we go...? Although...I do not want to venture to far in here.')
             go = input('left, forward \n ')
+             
     
-            if go != 'left' or go != 'forward':
+            if go != 'left' and go != 'forward':
                 print("what...?")
                 continue
             
@@ -407,15 +438,15 @@ if Marks_location == 'forest':
 
             if go == 'forward':
                 print("I went more forward, there seemed to have been a trail, I looked up, it was a temple.")
-                go == input("go inside, keep going, \n ").lower().strip()
-
+                go = input("go inside, keep going, \n ").lower().strip()
+            
                 if go == 'go inside':
-                    Marks_location == 'The Broken Temple'
+                    Marks_location = 'The Broken Temple'
                     break
 
             elif go == 'left': 
                 print("I saw a trail of munched up bamboo...I looked up, and I saw an adorable panda.")
-                go == input('fight it, gift ( give it a piece of bamboo ), go past it \n')
+                go = input('fight it, gift ( give it a piece of bamboo ), go past it \n')
 
                 if go == 'gift':
                     print("it took the piece of bamboo from me, I pet the panda, and let it be, let's head somewhere else")
@@ -433,19 +464,19 @@ if Marks_location == 'forest':
                             break
                         elif go == 'right':
                             print("where I came from, let's head forward afterwards, I saw a stone building of sort while walking here, should we head to it...? ")
-                            go == input('yes, no \n ')
+                            go = input('yes, no \n ')
                             if go != 'yes' and go != 'no':
                                 print("I'll go")
                             if go == 'yes':
                                 print("okay! After some time")
                                 time.sleep(1)
                                 print("I made it, I was right, it was a stone building, should we head inside?")
-                                go == input('yes, no \n ')
+                                go = input('yes, no \n ')
                             elif go == 'no':
                                 print("then...Where to...? Eh, I'm still going to the stone building.")
                                 time.sleep(1)
                                 print("should we head inside?")
-                                go == input('yes, no')
+                                go = input('yes, no \n ')
                                 if go != 'yes' and go != 'no':
                                     print("I'll go inside")
                                     Marks_location = 'The Broken Temple'
@@ -498,7 +529,7 @@ if Marks_location == 'forest':
                         if Marks_weapon == 'stick' or Marks_weapon == 'copper sword' or Marks_weapon == 'bamboo sword':
                             attack = input("swing, block")
 
-                            if attack != 'block' or attack != 'swing':
+                            if attack != 'block' and attack != 'swing':
                                 print("Really? You made the panda fall asleep...")
                                 panda["HP"] += panda["sleep "]
                                 print(panda["HP"])
@@ -526,7 +557,7 @@ if Marks_location == 'forest':
                             
                             attack = input("swing, block")
 
-                            if attack != 'block' or attack != 'swing':
+                            if attack != 'block' and attack != 'swing':
                                 print("Really? You made the panda fall asleep...")
                                 panda["HP"] += panda["sleep "]
                                 print(panda["HP"])
@@ -571,7 +602,7 @@ if Marks_location == 'forest':
                         elif Marks_weapon == 'none':
                             attack = input("punch, block")
 
-                            if attack != 'block' or attack != 'punch':
+                            if attack != 'block' and attack != 'punch':
                                 print("Really? You made the panda fall asleep...")
                                 panda["HP"] += panda["sleep "]
                                 print(panda["HP"])
@@ -599,7 +630,7 @@ if Marks_location == 'forest':
                             
                             attack = input("punch, block")
 
-                            if attack != 'block' or attack != 'punch':
+                            if attack != 'block' and attack != 'punch':
                                 print("Really? You made the panda fall asleep...")
                                 panda["HP"] += panda["sleep "]
                                 print(panda["HP"])
@@ -643,19 +674,19 @@ while Marks_location == 'The Broken Temple':
                     continue
                 elif answer == '36':
                     print("alright next one...8 x 6")
-                    answer == input("type a number \n ")
+                    answer = input("type a number \n ")
                     if answer != '48':
                         print("darn...")
                         continue
                     elif answer == '48':
                         print("alright...Next one... 13 x 12 ")
-                        answer == input("type a number \n ")
+                        answer = input("type a number \n ")
                         if answer != '156':
                             print("darn...")
                             continue
                         elif answer == '156':
                             print("alright... last one...11 x 11")
-                            answer == input("type a number \n")
+                            answer = input("type a number \n")
                             if answer != '121':
                                 print("darn...")
                                 continue
@@ -670,28 +701,32 @@ while Marks_location == 'The Broken Temple':
                                     Marks_stats["damage"] += weapons["the great bamboo sword"]
                                     Marks_weapon = 'bamboo sword'
                                     print("let's leave")
-                                    Marks_location == 'outside of temple'
+                                    Marks_location = 'outside of temple'
                                     break
                                 elif Marks_weapon == 'none':
                                     print("A weapon, I'll take it, ")
                                     Marks_weapon = 'bamboo sword'
                                     Marks_stats["damage"] += weapons["the great bamboo sword"]
                                     print("let's leave")
-                                    Marks_location == 'outside of temple'
+                                    Marks_location = 'outside of temple'
                                     break
                                 elif Marks_weapon == "copper sword":
                                     print("All of that...for nothing...Not worth changing this piece of metal for a plant")
                                     time.sleep(0.3)
                                     print("let's leave")
-                                    Marks_location == 'outside of temple'
+                                    Marks_location = 'outside of temple'
                                     break
                                 
 
 
 while Marks_location == 'outside of temple':
     print("Let's go somewhere else, ")
-    go = input("forward, left")
+    go = input("forward, left \n ")
 
+
+    if go == 'left' and Status["panda"] == 'happy':
+        print("no need to go back, it'd be best to let it rest. ")
+        continue
     if go == 'left':
         print("that's where the panda is, are you trying to fight it? Aside from that, there's no point. ")
         go = ('fight it, no \n ')
