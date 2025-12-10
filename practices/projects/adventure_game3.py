@@ -380,7 +380,7 @@ if Marks_location == 'forest':
                             Marks_stats["health"] += Marks_stats["min Hp"]
                             attempts += 1
                             if Key_shard == 'fixed':
-                                Key_shard2 = 'unshattered'
+                                Key_shard2 = 'fixed'
                             elif Key_shard == 'broken':
                                 Key_shard = 'fixed'
                             break
@@ -555,7 +555,7 @@ if Marks_location == 'jungle':
                             print("We have to go somewhere else now...")
                             Marks_stats["defense"] += 1
                             Marks_stats["damage"] += 2
-                            go == ('forward, right')
+                            go = input('forward, right')
                             break
                         elif Marks_stats["health"] < 1:
                             print("That was a strong panda...Like most bears...")
@@ -807,29 +807,55 @@ if Marks_location == 'desert':
                 print('lets go back then.')
                 continue
             elif go == 'yes':
-                print("this place is amazing... There's a sign, ")
-                print("solve my math problems, 3 of them.")
-                print("okay...? Should we?")
-                go = input("yes, no")
+                Marks_location = 'desert temple'
+                while Marks_location == 'desert temple':
 
-                if go.lower() == 'yes':
-                    print("let's do it then! ")
-                    print("what's 3 x 3?")
-                    answer = input("type a number \n ")
-
-
-                    if answer == 9:
-                print("great!")
-                print("next one 4x4? ")
-                answer = input("type a number")
-                if answer == 16:
-                    print("perfect! Last one, 10 + 3 ")
-                    answer = input("type a number")
-                else:
-                    print("darn...")
+                    print("this place is amazing... There's a sign, ")
+                    print("solve my math problems, 3 of them. Start over if you mess up")
+                    print("okay...? Should we?")
+                
             
-            else:
-                print("wrong...")
+                    go = input("yes, no")
+
+                    if go =='no':
+                        print("let's go back then")
+                        Marks_location = 'desert'
+                        continue
+
+                    if go.lower() == 'yes':
+                        print("let's do it then! ")
+                        print("what's 3 x 3?")
+                        answer = input("type a number \n ")
+
+                        str(answer)
+
+                        if answer == '9':
+                            print("great!")
+                            print("next one 4x4? ") 
+                            answer = input("type a number")
+
+                        if answer == '16':
+                            print("perfect! Last one, 10 + 3 ")
+                            answer = input("type a number")
+                            if answer == '13':
+                                print("great! Oh, a door has opened, I looked inside, it had a chestplate of sort, of sandstone...? I put it on")
+                                time.sleep(1)
+                                print("It was heavy, but it felt...Great.")
+                                Marks_stats["defense"] += armor["sandstone"]
+                                armor_equipped = 'sandstone'
+                                time.sleep(0.5)
+                                print("let's head back")
+                                Marks_location = 'desert'
+                            else:
+                                print("aw...We were so close!")
+                        else: 
+                            print("wrong...")
+                            continue
+                    else:
+                        print("darn...")
+                        continue
+            
+
             
 
         elif go.lower() == 'no':
@@ -859,7 +885,7 @@ if Marks_location == 'desert':
                             print(Marks_stats['health'])
 
                             if Marks_stats["health"] < 1:
-                                print("My greed is what go to me...")
+                                print("My greed is what got to me...")
                                 Marks_location = 'none'
                                 break
 
@@ -869,6 +895,10 @@ if Marks_location == 'desert':
                                 Marks_stats["health"] += Marks_stats["min Hp"]
                                 Marks_stats["defense"]+= 1
                                 Marks_stats["max HP"] += 7
+                                if Key_shard == 'fixed':
+                                    Key_shard2 = 'fixed'
+                                elif Key_shard == 'broken':
+                                    Key_shard = 'fixed'
                             
                             
                             print("It looks serious")
@@ -895,13 +925,15 @@ if Marks_location == 'desert':
                                     Key_shard2 = 'fixed'
                                     print("the final piece...Let's go the gate... C'mon")
                                     Marks_location = 'gate'
+                                elif Key_shard == 'broken':
+                                    Key_shard = 'fixed'
                             
                             print("It looks serious")
 
                             print("the golem raised it's fist oh so slightly, it looked like it was going to be ready to attack, not yet.")
                             time.sleep(1)
 
-                            attack = input("punch, block")
+                            attack = input("punch, block \n ")
 
 
 
@@ -924,31 +956,34 @@ if Marks_location == 'desert':
                                 print('my health', Marks_stats['health'])
 
                             
-                            attack = input("punch, block")
+                            attack = input("punch, block \n ")
 
                             if attack != 'punch' and attack != 'block':
                                 print("It didn't even give me time to say anything, I was knocked straight to the floor then it had put its chest outward, the gem glew bright it shun its light upon me, and I had felt better ")
                                 time.sleep(1)
                                 Marks_stats["health"] -= desert_golem["swing"] 
                                 Marks_stats["health"] += desert_golem["holy gem"]
+                                Marks_stats["health"] += Marks_stats["defense"]
                                 print('golem:', desert_golem["HP"])
                                 print('my health', Marks_stats['health'])
                             if attack == 'punch':
                                 print("I didn't even get time to react... It immediately hit me towards the ground, I saw a blazing light, a flash, I had felt better")
                                 Marks_stats["health"] -= desert_golem["swing"] 
                                 Marks_stats["health"] += desert_golem["holy gem"]
+                                Marks_stats["health"] += Marks_stats["defense"]
                                 print('golem:', desert_golem["HP"])
                                 print('my health', Marks_stats['health'])
                             elif attack == 'block':
                                 print("I saw before my eyes as I raised my arm quickly in the air, I was pushed back a lot...")
                                 Marks_stats["health"] -= desert_golem["blocked swing"]
+                                Marks_stats["health"] += Marks_stats["defense"]
                                 time.sleep(0.5)
                                 print("I looked up only to be blinded by a gem, after the light had gone away I had felt better")
                                 Marks_stats["health"] += desert_golem["holy gem"]
                                 print('golem:', desert_golem["HP"])
                                 print('my health', Marks_stats['health'])
 
-                            attack = input("punch, block")
+                            attack = input("punch, block \n ")
 
 
                             if attack != 'punch' and attack != 'block':
@@ -965,7 +1000,7 @@ if Marks_location == 'desert':
 
                             if attack_golem == 'small wind up':
                                 continue
-                            if golem == 'solidified':
+                            if golem == 'solidified' and attack_golem == 'solidify':
                                 print("it just stood there...")
                             elif attack_golem == 'solidify':
                                 print(" A dust storm of sort blew over the golem, he had gotten sand stone on his body... ")
@@ -982,11 +1017,13 @@ if Marks_location == 'desert':
                             attack = input("punch, block")
 
                             if attack != 'punch' and attack != 'attack':
-                                print("...")
+                                print("...We stood, face to face")
                                 continue
                             elif attack == 'punch':
                                 print("I watched as it mocked me in a way, it healed...?")
+                                desert_golem["HP"] -= Marks_stats["damage"] 
                                 desert_golem["HP"] += desert_golem["defense"]
+                                continue
                             elif attack == 'block':
                                 print("he just stood... there...")
                                 continue
