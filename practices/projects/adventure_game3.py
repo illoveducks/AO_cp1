@@ -181,7 +181,7 @@ if Marks_location == 'forest':
         elif go == "pick up":
             print("okay...?") 
             Marks_stats["damage"] += weapons["stick"]
-            Marks_weapon = 'stick'
+            Marks_weapon = 'stick' 
 
             while True:
                 if Marks_location == 'unknown':
@@ -202,6 +202,8 @@ if Marks_location == 'forest':
                     break
 
                 elif go == 'forward' and Status["wolf"] == 'dead':
+                    if Marks_location != 'forest':
+                        break
                     print(" What now...?")
                     go = input("forward, left")
                     if go == "forward":
