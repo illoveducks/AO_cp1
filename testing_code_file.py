@@ -14,3 +14,7 @@ print(hi['lazy'])
 damage += weapon_damage["stick"]
 
 print(damage)
+
+possibility = ["hi", "hello","11"]
+
+print(r.choice(possibility))

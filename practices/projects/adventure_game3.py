@@ -25,7 +25,8 @@ Marks_weapon = "none"
 
 weapons = {
     "stick": 3,
-    "the great bamboo sword": 5
+    "the great bamboo sword": 5,
+    "copper sword": 7 
 
 }
 
@@ -38,6 +39,7 @@ Key_shard2 = 'broken'
 
 gem = 'not obtained'
 
+armor_equipped = ' none '
 
 wolf = {'HP': 50,
         'scratch': 5,
@@ -51,7 +53,12 @@ desert_golem = {'HP': 100,
                 'blocked swing': 7,
                 'holy gem': r.randint(3, 5),
                 'solidify': 1,
-                 'defense': 2}
+                 'defense': 2
+}
+
+golem = 'not solidified'
+
+
 
 panda = { 'HP': 75,
         'scratch': 5,
@@ -66,10 +73,12 @@ program = {'HP': 50,
            }
 
 
+Marks_location = 'none'
 
 
 
-Marks_location = "none"
+
+
 
 print("I woke up, I wonder, I wonder what's going on in town today. I need to get ready")
 
@@ -144,9 +153,6 @@ while True:
         break
 
 
-Marks_location
-
-
 
 
 
@@ -204,6 +210,8 @@ if Marks_location == 'forest':
                         break
                     elif go == " left":
                         print("And so I left, making it to a viny place, I am in the jungle...I think")
+                        Marks_location = 'jungle'
+                        break
 
                 
                 if go == 'forward':
@@ -351,10 +359,8 @@ if Marks_location == 'forest':
                         print("wolf's health", wolf["HP"])
                         print("Maybe I should block")
 
-                        attack = input('punch, block \n ')
-                        str(attack)
 
-                        if Marks_stats['health'] <= 1:
+                        if Marks_stats['health'] < 1:
                             print("I can't push myself any further...I'm sorry friend...")
                             time.sleep(1)
                             print("there's always a next time...right...? ")
@@ -362,7 +368,7 @@ if Marks_location == 'forest':
                             print("right...?")
                             attempts +=1
                             break
-                        if wolf["HP"] <= 1:
+                        if wolf["HP"] < 1:
                             Status["wolf"] = 'dead'
                             print("I did it! I did... It...? I don't feel good...I feel a recollection...Grief...")
                             time.sleep(1)
@@ -376,7 +382,9 @@ if Marks_location == 'forest':
                             elif Key_shard == 'broken':
                                 Key_shard = 'fixed'
                             break
-        
+
+                        attack = input('punch, block \n ')
+                        str(attack)
 
 
                         if attack != 'block' and attack != 'punch':
@@ -893,13 +901,31 @@ if Marks_location == 'desert':
                                 print("I hit the golem, it didn't do much, I watched as sandstone crumbled off of it")
                                 desert_golem["HP"] -= Marks_stats["damage"]
                             elif attack == 'block':
+                                print("it stared...")
 
+                            possibility = ["solidify, small wind up, and use the gem once more "]
 
+                            attack_golem = r.choice(possibility)
+
+                            if attack_golem == 'small wind up':
+                                continue
+                            if golem == 'solidified':
+                                print("it just stood there...")
+                            elif attack_golem == 'solidify':
+                                print(" A dust storm of sort blew over the golem, he had gotten sand stone on his body... ")
+                                golem = 'solidified'
+                            
+                                desert_golem["defense"] += 1
+                            elif attack_golem == 'holy gem':
+                                print("A great light came out of its chest, it had recovered part of itself, or added more to itself... it makes me feel better...")
+
+                                
 
 
 
                     elif go != 'go past it':
                         print("...")
+                        continue
 
 
 
@@ -911,8 +937,41 @@ if Marks_location == 'none':
     print("awww... You died :( just go back and re run the terminal, by pressing the play button again good luck next attempt! ")
                 
             
+if Marks_location == 'desert temple':
+    def location(desert_temple):
+        print("this place is amazing... There's a sign, ")
+        print("solve my math problems, 3 of them.")
+        print("okay...? Should we?")
+        go = input("yes, no")
+
+        if go.lower() == 'yes':
+            print("let's do it then! ")
+            print("what's 3 x 3?")
+            answer = input("type a number \n ")
 
 
+            if answer == 9:
+                print("great!")
+                print("next one 4x4? ")
+                answer = input("type a number")
+                if answer == 16:
+                    print("perfect! Last one, 10 + 3 ")
+                    answer = input("type a number")
+                else:
+                    print("darn...")
+            
+            else:
+                print("wrong...")
+            
+
+        elif go.lower() == 'no':
+            print("darn...Alright...Lets head outside... ")
+            Marks_location = 'desert'
+        else:
+            print('what...?')
+    
+
+location('desert temple')
 
 
 

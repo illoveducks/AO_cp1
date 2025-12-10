@@ -1,2 +1,2 @@
 
-hand.sleep(1)
+        go = input("forward, right")
