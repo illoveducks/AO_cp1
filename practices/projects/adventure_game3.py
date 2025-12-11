@@ -670,6 +670,8 @@ if Marks_location == 'jungle':
                             if attack != 'block' and attack != 'swing':
                                 print("Really? You made the panda fall asleep...")
                                 panda["HP"] += panda["sleep "]
+                                print(panda["HP"])
+                                print(Marks_stats["health"])
                                 continue
                             if attack == 'swing':
                                 panda["HP"] -= Marks_stats["damage"]
