@@ -193,6 +193,7 @@ if Marks_location == 'new town':
             print("I wouldn't mind one then, please?")
             print("of course, take this blade child of man, for it serves no purpose to me no more as it is rusty. ")
             Marks_weapon = 'rusty sword'
+            Marks_stats["damage"] += weapons["rusty sword"]
             time.sleep(0.4)
             print("thanks, what now?")
             print("just set forth, can't have you here forever holding a blade like that, citizens would force me to fight you, leave, beyond the castle is the forest, see you around.")
@@ -229,14 +230,16 @@ if Marks_location == 'forest':
             Marks_location = 'jungle'
             break 
         
-        if go == "pick up ":
-            print(" why would I want a stick!? Over a sword?! ")
+
         elif go == "pick up":
             if Marks_weapon == 'rusty sword':
-                break
-            print("okay...?") 
-            Marks_stats["damage"] += weapons["stick"]
-            Marks_weapon = 'stick' 
+                print("I'm not going to pick up a stick over a sword.")
+            
+            if Marks_weapon == 'none':
+                Marks_weapon = 'stick'
+                print("okay...?") 
+                Marks_stats["damage"] += weapons["stick"]
+ 
 
             while True:
                 if Key_shard == 'fixed' and Key_shard2 == 'fixed':
@@ -354,7 +357,7 @@ if Marks_location == 'forest':
 
                             elif attack == 'swing':
                                 print("should've blocked...")
-                                wolf["HP"] -= Marks_stats
+                                wolf["HP"] -= Marks_stats["damage"]
                                 Marks_stats["health"] -= wolf["scratch"]
                                 print("my health ", Marks_stats["health"])
                                 print("wolf's health", wolf["HP"])
@@ -1257,6 +1260,57 @@ if Marks_location == 'desert':
                         print("...")
                         continue
 
+while True:
+    if Status["desert golem"] == 'dead' and Marks_location == 'desert' :
+        print("The sandstorm cleared...I looked around, to see the new town, ")
+        go = input("forward, right")
+        if go == 'right' and armor_equipped == 'sandstone':
+            print("I'm not going to head back to the temple, let's...Just go to the town. ")
+            Marks_location = 'new town'
+            break
+        if go == 'right':
+            print("alright.")
+            Marks_location = 'desert temple'
+            break
+
+
+while Marks_location == 'new town' and Status['desert golem'] == 'dead':
+    print("this place is nice...Where should we go?")
+    go = input("forward, left")
+
+    if go == 'left':
+        print("So I went towards the castle")
+        time.sleep(0.7)
+        print("hey, I feel believe we've met ")
+        print("I don't think so? ")
+        time.sleep(0.7)
+        
+
+    if go == 'forward' and gem == 'obtained':
+        print("hey, how are you doing? I feel like you have a gem, also, the sandstorm disappeared, ")
+        time.sleep(1)
+        print("I killed a golem, that's why the sandstorm disappeared,")
+        print("Oh I see! Good on you, you seem...? Not okay, ")
+        time.sleep(0.4)
+        print("I'm not. i brought a gem, if you want it")
+        print("Oh execellent! This will increase your strength! ")
+        time.sleep(0.4)
+        print("i don't really believe magic but okay")
+        Marks_stats["damage"] += 2
+        print("lets head back, I want to go somewhere special, i'll take control, ")
+        time.sleep(0.4)
+        print("Hey pal, here, you might want this. ")
+        Key_shard = 'fixed' 
+        Key_shard2 = 'fixed'
+        print("thanks...")
+        time.sleep(1)
+        print("so I set on a journey, towards the gate. A place I never wanted to visit. ")
+        time.sleep(2)
+        print("And here I was...")
+        Marks_location = 'gate'
+        break
+        
+
 
 
 
@@ -1297,7 +1351,12 @@ if Marks_location == 'gate':
                 program = 'shutdown'
                 break
             elif Marks_stats["health"] < 1:
-                print("hello")
+                print("Mark, you'll always be stuck here, no matter what...")
+                break
+
+
+
+
 
 
 
