@@ -15,6 +15,7 @@ damage += weapon_damage["stick"]
 
 print(damage)
 
-possibility = ["hi", "hello","11"]
+while True:
+    possibility = ["hi", "hello","11"]
 
-print(r.choice(possibility))
+    print(r.choice(possibility))
