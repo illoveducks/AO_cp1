@@ -1295,6 +1295,7 @@ if Marks_location == 'gate':
                 program = 'shutdown'
                 break
             elif Marks_stats["health"] < 1:
+                print("hello")
 
 
 
