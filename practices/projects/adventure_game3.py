@@ -1562,53 +1562,6 @@ if Marks_location == 'gate':
                 continue
 
 
-            
-
-
-
-
-
-            
-            
-
-
-
-
-
-
-            
-
-
-
-            
-            
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
- 
-
-
-
-
-
 
 # Explaining movement
 # You can pick directions to make Mark go, forward, left, or right, each will lead to a different place
