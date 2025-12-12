@@ -165,7 +165,7 @@ while True:
 if Marks_location == 'new town':
     print(" this place is nice, where should we go? ")
     while True:
-        go = input(" right, forward ")
+        go = input(" right, forward \n ").strip()
         
         if go == 'right':
             print("Alright, this place is small, I'm heading towards a building ")
