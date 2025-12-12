@@ -26,7 +26,8 @@ Marks_weapon = "none"
 weapons = {
     "stick": 3,
     "the great bamboo sword": 5,
-    "rusty sword": 4 
+    "rusty sword": 4,
+    "???": 0
 }
 
 
@@ -46,7 +47,7 @@ wolf = {'HP': 50,
         'pounce': 3,
         'howl': 0}
 
-desert_golem = {'HP': 100,
+desert_golem = {'HP': 85,
                 'wind up': 0,
                 'hefty wind up': 0,
                 'swing': 12,
@@ -67,9 +68,10 @@ panda = { 'HP': 75,
          'eat': 1}
 
 program = {'HP': 50,
-           'defense': 1,
-           'Fatal error': 5,
-           'virus': 12
+           'defense': 2,
+           'error': 5,
+           'virus': 12,
+           'break': 50
            }
 
 
@@ -231,6 +233,8 @@ if Marks_location == 'forest':
             break 
         
 
+
+
         elif go == "pick up":
             if Marks_weapon == 'rusty sword':
                 print("I'm not going to pick up a stick over a sword.")
@@ -303,7 +307,7 @@ if Marks_location == 'forest':
                                 print("And so I set forth, for what seemed could be the last time... ")
                                 Marks_location = 'the end'
                                 break
-
+                if Marks_weapon == 'rusty sword' or Marks_weapon == 'stick' or Marks_weapon == 'bamboo sword':
                     if go == 'wake it up':
                         print("i screamed at the wolf, it let out a howl as if it were calling something, there is no turning back, no longer...")
                         time.sleep(0.5)
@@ -627,6 +631,10 @@ if Marks_location == 'jungle':
                             print("We have to go somewhere else now...")
                             Marks_stats["defense"] += 1
                             Marks_stats["damage"] += 2
+                            if Key_shard == 'fixed' and Key_shard2 == 'fixed':
+                                Marks_location = 'gate'
+                                break 
+
                             go = input('forward, right')
                                 
                             if Key_shard == 'fixed' and Key_shard2 == 'fixed':
@@ -691,8 +699,8 @@ if Marks_location == 'jungle':
 
                         if Status["panda"] == 'dead':
                             break
-                        print(panda["HP"])
-                        print(Marks_stats["health"])
+                        print('lazy panda: ', panda["HP"])
+                        print(' my health: ', Marks_stats["health"])
                         if Marks_weapon == 'none':
                             attack = input("punch, block")
 
@@ -876,6 +884,8 @@ while Marks_location == 'outside of temple':
 if Marks_location == 'desert':
     print("this very sandy place...There's not much... I see something tall...")
     while True:
+        if Key_shard == 'fixed' and Key_shard2 == 'fixed':
+            break
         if Marks_location != 'desert':
             break
         go = input("forward, right")
@@ -1335,24 +1345,253 @@ if Marks_location == 'gate':
     time.sleep(0.3)
 
     while Marks_location == 'gate':
+        if Marks_stats["health"] < 1:
+            break
         if program == 'shutdown':
             break
         print(" Mark, why are you here? ")
         time.sleep(0.5)
         print("I was taken here by you. And I know why I'm here, it is just for you people to toy with me. Isn't it? I will free. myself if that's the case... ")
         time.sleep(0.3)
-        print("fine, then so be it Mark, ")
+        print("You were never a toy, you were an experiment  ")
+        print("That's basically the same thing! And I don't want to be an 'experiment' anymore! Let me free!")
+        print("Then You'll have to fight for it. ")
+        time.sleep(0.7)
+        print("fine...Then so be it... ")
         
-        Marks_stats["health"] = 50
+        Marks_stats["health"] = 70
+        Marks_stats["defense"] = 0
+        Marks_weapon = '???'
+        print("I don't even know what I am even holding anymore...")
+        Marks_stats["damage"] = 6
+        
+        print("I feel weaker, yet, better, ")
+        time.sleep(1)
+        print(" This will be your end")
+        time.sleep(1.5)
+        print("Fix heals you by 3 hp, it will heal you 20 hp if you use it on 'break' as that deals 50 dmg, fix is your block uhm...Attack, does dmg 'wow' goodluck!")
+        time.sleep(7)
         while Status["program"] == 'unbroken':
             if program["HP"] < 1:
                 print("At last, I will break myself free from this stupid simulation...")
-                print("Screw you mark...")
+                print("shutting down...")
                 program = 'shutdown'
                 break
             elif Marks_stats["health"] < 1:
-                print("Mark, you'll always be stuck here, no matter what...")
+                print("Mark, you'll always be stuck here, no matter what, just like the rest of them...")
                 break
+
+            print("I stood in awe, face to face with my creator")
+
+            print("my health:", Marks_stats["health"] )
+            print("Creator:", program["HP"]  )
+
+
+            attack = input(' attack, fix \n ')
+
+            if attack == 'attack':
+                print("I hit the screen with what I had, I looked, and he looked upset")
+                time.sleep(1)
+                print("Why do you fight reality?")
+                program["HP"] += program["defense"]
+                program['HP'] -= Marks_stats["damage"] 
+            
+                print("my health:", Marks_stats["health"] )
+                print("Creator:", program["HP"]  )
+
+            elif attack == 'fix':
+                print("What exactly are you planning...")
+                Marks_stats["health"] += 3
+                print("my health:", Marks_stats["health"] )
+            print("installing...2 Viruses")
+
+            attack = input("attack, fix \n ")
+
+            print("wonder what that means...")
+
+            if attack == 'attack':
+                print("why do you resist...?")
+                program["HP"] -= Marks_stats["damage"]
+            if attack == 'fix':
+                print("Why try fixing something that is already broken...?")
+                Marks_stats["health"] += 3
+
+            print(" your attempts are weak. ")
+            Marks_stats["health"] -= (program["virus"] * 2)
+            time.sleep(1)
+
+            print(" I feel like I am slowly breaking...Apart")
+
+            attack = input("attack, fix \n ")
+
+            if attack != 'attack' and attack != 'fix':
+                print("Please...Not now...")
+                attack = input('attack, fix ')
+            if attack != 'attack' and attack != 'fix':
+                print("I broke apart. Shattering.")
+                Marks_stats["health"] -= program["break"]
+                continue
+            if attack == 'attack':
+                print("I Broke apart...Slowly...")
+                Marks_stats['health'] -= program["break"]
+                continue
+            elif attack == 'fix':
+                print("I felt a lot better...I recollected myself, my shattering piece ")
+                Marks_stats["health"] += 20
+                Marks_stats["health"] += Marks_stats["defense"]
+                print("You should've broken. ")
+                print("my health:", Marks_stats["health"] )
+                print("Creator:", program["HP"]  )
+
+
+            print("removing error...")
+
+            print("It seems like an attack I won't be able to fix or block, let him do that, ")
+
+            attack = input("attack, fix")
+
+            if attack != 'block' and attack != 'attack':
+                print("What'g wrong...? Your puppeteer not saying anything...? Why must you let him control you...?")
+                time.sleep(1)
+                print("shut up...")
+                time.sleep(0.6)
+                print("Never the less...An error has been removed")
+                Marks_stats["health"] -= program["error"] 
+                print("my health:", Marks_stats["health"] )
+                print("Creator:", program["HP"]  )
+
+
+
+
+            if attack == 'fix':
+                print("What exactly will that do...?")
+                Marks_stats["health"] += 3
+                Marks_stats["health"] += Marks_stats["defense"]
+                time.sleep(2)
+                print("never the less...What is there to fix? When you are the problem...I will remove that 'debug' of yours... ")
+                Marks_stats["health"] -= 3
+                Marks_stats["health"] -= program["error"]
+                time.sleep(0.5)
+                print("my health:", Marks_stats["health"] )
+                print("Creator:", program["HP"]  )
+
+
+            elif attack == 'attack':
+                print("Pitiful")
+                time.sleep(0.5)
+                program["HP"] -= Marks_stats["damage"]
+                program["HP"] += program["defense"] 
+                print("Error... Removed")
+                Marks_stats["health"] -= program["error"]
+                print("my health:", Marks_stats["health"] )
+                print("Creator:", program["HP"]  )
+
+
+            print("What is there left to do...Sit around...? Will you fall to your doom? Like the others that came... Will You accept your fate...?")
+             
+
+            attack = input("attack, block")
+
+            if attack != 'attack' and attack != 'block':
+                print('new error detected, block being forcefully reset... Being renamed...To "fix..."... Continue command being...Formed')
+            if attack == 'attack':
+                print(" I attacked... ")
+                program["HP"] += program['defense']
+                program["HP"] -= Marks_stats["damage"]
+                print(" New error being formed...Block being forcefully reset to 'fix...' continue command being forcefully formed. ")
+                print("my health:", Marks_stats["health"] )
+                print("Creator:", program["HP"]  )
+
+            elif attack == 'block':
+                print("What do you think that will do...? ")
+                time.sleep(1)
+                print("to block...?")
+                print(" New error detected...Block being forcefully renamed to ' fix ' ")
+                print("my health:", Marks_stats["health"] )
+                print("Creator:", program["HP"]  )
+
+            print(" New error...Formed... Remove error later... removing name error, fix being slowly changed to block...Debug time: Error ")
+
+            attack = input('attack, fix')
+
+            if attack != 'attack' and attack != 'block':
+                print("Your puppeteer is indesicive... ")
+                
+
+            if attack == 'attack':
+                print(" I attacked")
+                time.sleep(1)
+                print("You still have a chance to change...")
+                program['HP']  -= Marks_stats["damage"]
+                
+            elif attack == 'fix':
+                print(" What are you planning...?")
+                Marks_stats["health"] += 3 
+            
+
+            print("There's still a way...For this all to be normal... Breaking...Breaking down...Status: Not ready...")
+            print("Continue command...Status... Ready...")
+            time.sleep(0.8)
+            print("What is going on...?")
+            print("Don't worry about it...")
+            time.sleep(1)
+            print("Command executed: Continue, valid? False: New error formed. Fixing...Removing...Error")
+            time.sleep(1.6)
+            print("Oh C'mon! Stupid...Computer...")
+            print('What...? ')
+
+
+
+            attack = input('attack, fix')
+
+            if attack == 'attack':
+                print("I attacked")
+                time.sleep(0.8)
+                print("Continue command. formed, error fixed continue Executed ")
+                Marks_stats["health"] -= program["error"]
+                program["HP"] -=  Marks_stats["damage"]
+                program["HP"] += program["defense"]
+                Marks_stats["health"] += Marks_stats["defense"]
+                time.sleep(1)
+                continue
+            elif attack == 'fix':
+                print("Disabled fix, Error fix complete, Continue command, executed")
+                time.sleep(1)
+                continue
+
+            elif attack != 'attack' and attack != 'fix':
+                print("Continue command executed...")
+                Marks_stats["health"] -= program
+                time.sleep(1)
+                continue
+
+
+            
+
+
+
+
+
+            
+            
+
+
+
+
+
+
+            
+
+
+
+            
+            
+
+
+
+
+
+
 
 
 
