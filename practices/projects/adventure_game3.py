@@ -562,6 +562,9 @@ if Marks_location == 'jungle':
                 go = input('fight it, gift ( give it a piece of bamboo ), go past it \n')
 
                 if go == 'gift':
+
+                    print("I took a piece of munched bamboo off the ground, I showed it to the panda showing a gesture that I wanted to hand it to it.")
+                    time.sleep(3)
                     print("it took the piece of bamboo from me, I pet the panda, and let it be, let's head somewhere else")
                     Status["panda"] = 'happy'
                     while True:
@@ -636,12 +639,16 @@ if Marks_location == 'jungle':
                             if Key_shard == 'fixed' and Key_shard2 == 'fixed':
                                 Marks_location = 'gate'
                                 break 
+                            if Key_shard == 'fixed':
+                                Key_shard2 = 'fixed'
+                                break
+                            elif Key_shard != 'fixed':
+                                Key_shard = 'fixed'
+                                break
+
 
                             go = input('forward, right')
-                                
-                            if Key_shard == 'fixed' and Key_shard2 == 'fixed':
-                                Marks_location = 'gate'
-                                break 
+
                         elif Marks_stats["health"] < 1:
                             print("That was a strong panda...Like most bears...")
                             time.sleep(1)
@@ -865,8 +872,8 @@ while Marks_location == 'outside of temple':
         go = ('fight it, no \n ')
 
         if go == 'fight it':
-            print("...fine.")
-            Marks_location = ' panda fight'
+            print("...no")
+
 
         elif go == 'no':
         
@@ -1560,6 +1567,53 @@ if Marks_location == 'gate':
                 Marks_stats["health"] -= program
                 time.sleep(1)
                 continue
+
+
+            
+
+
+
+
+
+            
+            
+
+
+
+
+
+
+            
+
+
+
+            
+            
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
 
 
 
