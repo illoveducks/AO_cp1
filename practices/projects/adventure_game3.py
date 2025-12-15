@@ -54,7 +54,7 @@ desert_golem = {'HP': 85,
                 'blocked swing': 7,
                 'holy gem': r.randint(3, 5),
                 'solidify': 1,
-                 'defense': 2
+                 'defense': 3
 }
 
 golem = 'not solidified'
@@ -79,7 +79,10 @@ program = {'HP': 50,
 Marks_location = 'none'
 
 
-
+print("Hello player! This game has a weird story, Mark is your character, he wakes up, realizes something is wrong and sets forth! That is all for the introduction. goodbye!")
+time.sleep(3)
+print("Also if there's a long pause where mark asks you a question, you have to type something. just to make that clearer, ")
+time.sleep(4)
 
 
 
@@ -144,7 +147,7 @@ while True:
         break
     if attempts != 0:
         break
-    go = input("where should I go? \n left leads me to the forest, \n right leads me to the desert, \n forward leads me to the new town, \n or back home... ( type back to head home )\n ").strip()
+    go = input("where should I go? \n left leads me to the forest, \n right leads me to the desert, \n forward leads me to the new town, \n ").strip()
     
     str(go)
 
@@ -238,7 +241,7 @@ if Marks_location == 'forest':
         elif go == "pick up":
             if Marks_weapon == 'rusty sword':
                 print("I'm not going to pick up a stick over a sword.")
-                break
+
             if Marks_weapon == 'none':
                 Marks_weapon = 'stick'
                 print("okay...?") 
@@ -302,7 +305,7 @@ if Marks_location == 'forest':
                         elif Key_shard == 'fixed' and Key_shard2 == ' fixed':
                             print("the gate is open, I didn't even come here... Who opened it...? ") 
                             time.sleep(1)
-                            go = input("go through, back")
+                            go = input("go through, back \n ")
                             if go == 'back':
                                 continue
                             if go == 'go through':
@@ -444,7 +447,7 @@ if Marks_location == 'forest':
                             print("I did it! I did... It...? I don't feel good...I feel a recollection...Grief...")
                             time.sleep(1)
                             print("The memories...Ugh...I have a feeling to head to the gate. ")     
-                            print('we have to go... somewhere')
+  
                             Marks_stats["damage"] += 1
                             Marks_stats["health"] += Marks_stats["min Hp"]
                             attempts += 1
@@ -452,7 +455,7 @@ if Marks_location == 'forest':
                                 Key_shard2 = 'fixed'
                             elif Key_shard == 'broken':
                                 Key_shard = 'fixed'
-                                print(Key_shard)
+
                             break
 
                         attack = input('punch, block \n ')
@@ -902,6 +905,9 @@ if Marks_location == 'desert':
         if Marks_location != 'desert':
             break
         go = input("forward, right \n ")
+        if go == 'forward' and armor_equipped == "sandstone":
+            print("Let's not go there, we did everything there already. ")
+            continue
         if go == 'forward':
             print("I went forward away from the tall monolith, I found a temple.")
             time.sleep(1)
@@ -1003,6 +1009,7 @@ if Marks_location == 'desert':
                                 Marks_stats["health"] += Marks_stats["min Hp"]
                                 Marks_stats["defense"]+= 1
                                 Marks_stats["max HP"] += 7
+                                Status["desert golem"] = 'dead'
                                 break
 
                             
@@ -1023,14 +1030,8 @@ if Marks_location == 'desert':
                                 Marks_stats["health"] += Marks_stats["min Hp"]
                                 Marks_stats["defense"]+= 1
                                 Marks_stats["max HP"] += 7
-                                if Key_shard == 'fixed':
-                                    Key_shard2 = 'fixed'
-                                    print("the final piece...Let's go the gate... C'mon")
-                                    Marks_location = 'gate'
-                                    break
-                                elif Key_shard == 'broken':
-                                    Key_shard = 'fixed'
-                                    break
+                                Status["desert golem"] = 'dead'
+                                break
                             
                             print("It looks serious")
 
@@ -1160,7 +1161,9 @@ if Marks_location == 'desert':
                                 Marks_stats["health"] += Marks_stats["min Hp"]
                                 Marks_stats["defense"]+= 1
                                 Marks_stats["max HP"] += 7
+                                Status["desert golem"] = 'dead'
                                 break
+
                             print("It looks serious")
 
                             print("the golem raised it's fist oh so slightly, it looked like it was going to be ready to attack, not yet.")
